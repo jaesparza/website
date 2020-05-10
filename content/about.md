@@ -1,13 +1,16 @@
 ---
-title: Links
+title: about
 weight: 2
 bookToc: false
 ---
 
-# Collection of links
+# About
 
-Description of the content
+Content description
 
-## Section 1
+## Presence in other platforms
+* GitHub
+* Linked-in
+* QRZ
 
-## Section 2
+## GDPR
