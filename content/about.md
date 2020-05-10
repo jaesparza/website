@@ -12,5 +12,6 @@ Content description
 * GitHub
 * Linked-in
 * QRZ
+* YouTube
 
 ## GDPR
