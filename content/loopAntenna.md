@@ -1,7 +1,7 @@
 ---
 title: loopantenna
 weight: 2
-bookToc: true
+bookToc: false
 katex: true
 ---
 
