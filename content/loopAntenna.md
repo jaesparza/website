@@ -61,7 +61,22 @@ L_{loop} [Henry] \approx \mu_{0}\mu_{r}\cfrac{D}{2}\bigg[\ln\bigg(\cfrac{ 8D}{d}
 ### Reduction and tunning resolution
 
 ## Initial experiments
-* Coax-based antennas - Alexloop clones
+A coaxial cable-based magnetic loop is an excellent starting point to being experimenting and getting familiar with the working principles. These antennas are typically constructed with an outer loop made with a coaxial cable RG-213. Many builds keep the structure with PVC pipes. In order to hold the loop shape better it is best to choose a cable like LMR400 due to its rigidity.
+
+### Capacitors
+* Tunning capacitors for these antennas are normally of the broadcasting type. These are cheap and common in ebay, and easy to canibalize from old radios.
+* It is key not to touch the shaft of the capacitor when tunning the antenna. The proximity of the hand will affect the capacitance (this is know as "hand effect"). Even worse, if the antenna is in transmission, one can get an RF burn even at low power levesl. 
+
+Advantages:
+* Easy, cheap and fast to build and prototype.
+* Good antennas for portable operation, they can be dismounted easily.
+
+Disadvantages:
+* Lower efficiency than loops using thicker outer tubes.
+* Since these builds are normally made with broadcasting capacitors of small plate separation, TX power typically cannot go beyond 10 Watts.
+
+
+https://www.yo3ggx.ro/magloop/PortableMagLoopBuild_v1.0.pdf
 
 ## Mechanical construction
 * Stepper motors NEMA17
