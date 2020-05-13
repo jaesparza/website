@@ -96,14 +96,16 @@ General specifications:
 
 Specifications per band:
 
-|| 7 MHz | 10 MHz  | 14 MHz  | 18 MHz  | 21 MHz  | 24 MHz | 28 MHz |
-|----|---|---|---|---|---|---|---|
-| SWR |   |   |   |   |   |
-| Efficiency|   |   |   |   |   |
-| Bandwidth |   |   |   |   |   |
-| Voltage in the capacitor |   |   |   |   |   |
-| Circulating current |   |   |   |   |   |
-
+|                                               | 7 MHz     | 10 MHz    | 14 MHz    | 18 MHz  | 21 MHz   | 24 MHz   | 28 MHz    |
+|-----------------------------------------------|-----------|-----------|-----------|---------|----------|----------|-----------|
+| SWR                                           |           |           |           |         |          |          |           |
+| Efficiency                                    | 7%        | 21%       |  46%      | 67%     | 78%      | 85%      |  91%      |
+| Bandwidth                                     | 13.4 kHz  | 18.8 kHz  |  32.6kHz  | 61 kHz  | 97.7 kHz | 152 kHz  |  265 kHz  |
+| Tunning capacitance                           | 293 pF    | 144 pF    |  73 pF    | 44 pF   | 33pF     | 25 pF    |  18 pF    |
+| Voltage in the capacitor [RMS] @ 100 Watts    | 2013 V    | 2472 V    |  2579 V   | 2424 V  | 2236 V   | 2043 V   |  1809 V   |
+| Circulating current @ 100 Watts               | 26 A      | 21.9 A    |  16.6 A   | 12.2 A  | 9.62A    | 7.69 A   |  5.83 A   |
+| Voltage in the capacitor [RMS] @ 5 Watts      | 450 V     | 543 V     |  577 V    | 542 V   | 500 V    | 457 V    |  404 V    | 
+| Circulating current @ 5 Watts                 | 5.81 A    | 4.90 A    |  3.72 A   | 2.72 A  | 2.15 A   | 1.72 A   | 1.30 A    |
 
 ### Final comments
 
