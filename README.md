@@ -4,7 +4,7 @@
 ...
 
 ## Workflow
-
+Add description on working with pre-public branch
 ### Installation
 Install via binaries https://github.com/gohugoio/hugo/releases
 Avoid installing via package repo (apt-get ...) since these repositories have been many releases behind the latest one. This causes some features and themes to be incopatible.
