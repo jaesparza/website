@@ -51,6 +51,27 @@ git commit -m "your message"
 git push -u origin master
 ```
 
+### Notes on submodules for themes
+
+When cloning, remember to initialize the submodules for the themes. From the root of the repository:
+```
+git submodule update --init
+```
+
+Updating the submodule:
+```
+git pull origin master
+cd ..
+git add #here add the directory of the submodule
+git commit -m "Submodule updated"
+git push
+```
+or
+
+```
+git submodule update --remote --merge
+```
+
 ## Resources
 * Markdown format cheatsheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 * Hugo book theme https://themes.gohugo.io/hugo-book/
