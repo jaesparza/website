@@ -1,3 +1,22 @@
+---
+title: the archive
+weight: 2
+bookToc: true
+---
+# The archive
+
+A curated list of links to interesting articles, conferences, and websites that I have been compiling throughout the years.	
+
+I run periodical checks to find broken links, nevertheless, a rouge one might slip through. In that case the descriptive text should help to find the right information in the internet archive waybackmachine http://archive.org/web/web.php.
+
+The links are groupd by category (see menu on the right) and also tagged where relevant:
+* [Talk] Conferences, mostly on software and electronics.
+* [Documentary], [VintageDocumentary] Documentaries, mostly technical, some historical and a few combining both aspects.
+* [Shop] on-line shops on topics that I am interested.
+* [Spanish] Resources in Spanish language.
+		
+Licensing: For information on the material licenses, check the original source or contact its publisher. This is only a list of third party material.
+
 ## Radio
 * Naval Radio Operators during WWII [link](http://jproc.ca/rrp/nro_ww2.htm)
 * Wireless Operator Training WWII RAF [link](http://www.bbc.co.uk/history/ww2peopleswar/stories/73/a3252773.shtm)
