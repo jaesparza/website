@@ -5,17 +5,15 @@ bookToc: true
 ---
 # The archive
 
-A curated list of links to interesting articles, conferences, and websites that I have been compiling throughout the years.	
+A curated list of links to interesting articles, conferences, and websites that I have been compiling throughout the last 10 years.	
 
-I run periodical checks to find broken links, nevertheless, a rouge one might slip through. In that case the descriptive text should help to find the right information in the internet archive waybackmachine http://archive.org/web/web.php.
+I run [periodical checks](https://www.deadlinkchecker.com/) to find broken links but a rouge one might slip through. In that case, try the [internet waybackmachine](http://archive.org/web/web.php).
 
 The links are groupd by category (see menu on the right) and also tagged where relevant:
 * [Talk] Conferences, mostly on software and electronics.
 * [Documentary], [VintageDocumentary] Documentaries, mostly technical, some historical and a few combining both aspects.
 * [Shop] on-line shops on topics that I am interested.
-* [Spanish] Resources in Spanish language.
-		
-Licensing: For information on the material licenses, check the original source or contact its publisher. This is only a list to third party material.
+* [Spanish] Resources in Spanish.
 
 ## Radio
 ### Software Defined Radio (SDR)
@@ -220,3 +218,7 @@ Licensing: For information on the material licenses, check the original source o
 ### Space
 * SatNOGS Open Source global network of satellite ground-stations [link](https://satnogs.org)
 * The librespace community website [link](https://community.libre.space)
+
+{{< hint warning >}}
+Licensing: check the original source and/or contact its publisher. This is only a list to third party material.
+{{< /hint >}}
