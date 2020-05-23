@@ -55,11 +55,13 @@ The antennas described here can generate high intensity RF fields in their vecin
 
 ## Theoretical considerations
 
-Ketex is going to be needed, let's try it:  
-   
+Katex is going to be needed, let's try it:  
+
 {{< katex >}}
 L_{loop} [Henry] \approx \mu_{0}\mu_{r}\cfrac{D}{2}\bigg[\ln\bigg(\cfrac{ 8D}{d}\bigg)-2 \bigg]
 {{< /katex >}}
+
+
 
 ### Antenna dimension cancluations
 
