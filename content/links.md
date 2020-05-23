@@ -218,5 +218,5 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * The librespace community website [link](https://community.libre.space)
 
 {{< hint warning >}}
-Licensing: check the original source and/or contact its publisher. This is only a list to third party material.
+Licensing: I do not hold the copyright of these resources. If you want to reuse them, check the license of the original source and/or contact its publisher.
 {{< /hint >}}
