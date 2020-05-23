@@ -1,10 +1,14 @@
 # Personal website [![Netlify Status](https://api.netlify.com/api/v1/badges/bd9b2588-be1d-4bb3-b2fa-fec3cd8e5ae0/deploy-status)](https://app.netlify.com/sites/theredthread/deploys)
 
 ## Intro
-...
+In this project I am trying out Hugo, a static web generator. Some of the advantages if compared to traditional CMS:
+* Little-to-no server maintenance (no php or SQL server)
+* Sensible deployment workflow via Netlify
+* Free hosting on GitHub
+
+Aditionally, no cookies get created and one has more control on what information is collected (easier GDPR compliance).
 
 ## Workflow
-Add description on working with pre-public branch
 ### Installation
 Install via binaries https://github.com/gohugoio/hugo/releases
 Avoid installing via package repo (apt-get ...) since these repositories have been many releases behind the latest one. This causes some features and themes to be incopatible.
