@@ -46,7 +46,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * Real world RF filter design and construction [link](https://hackaday.com/2017/03/30/real-world-rf-filter-design-and-construction)
 * Troposcatter Communication Networks [link](http://rammstein.dfmk.hu/~s200/tropo.html)
 * The Conet Project: recordings of number radio stations in the HF bands [link](https://soundcloud.com/the-conet-project)
-* Radio direction finding [link](http://www.prc68.com/I/RDF.shtm)
+* Radio direction finding [link](http://www.prc68.com/I/RDF.shtml)
 
 ### Space and air comms.
 * [Talk] 2013 Hugo Teso, Hack in the box security conference - Aircraft Hacking: Practical Aero Series [link](https://youtu.be/wk1jIKQvMx8)
@@ -55,7 +55,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * [Talk] 2015 Balint Seeber - Rescuing ISEE-3 with Software-Defined Radio [link](https://youtu.be/BKIJp_9--kAs)
 * [Talk] 28c3: Building a Distributed Satellite Ground Station Network - A Call To Arms [link](https://www.youtube.com/watch?v=iuwkzNjaPwc)
 * NASA deep space network [link](https://deepspace.jpl.nasa.gov)
-* Japanese planespotter building software for ADSB, ACARS, VDL and more [link](http://www2.plala.or.jp/hikokibiyori/soft/index.htm)
+* Japanese planespotter building software for ADSB, ACARS, VDL and more [link](http://www2.plala.or.jp/hikokibiyori/soft/index.html)
 * US military UHF TACSAT/DAMA [link](https://www.globalsecurity.org/military/library/policy/army/fm/6-02-90/fm6-02-90.pdf)
 
 ### Magnetic loop articles
