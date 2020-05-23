@@ -6,4 +6,5 @@ bookToc: false
 
 # About
 The beginning of an on-line notebook. 
-Good links for now.
+
+For now, only good links.
