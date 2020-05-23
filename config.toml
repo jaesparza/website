@@ -4,17 +4,16 @@ title = "The red thread"
 theme = "book"
 
 [menu]
-[[menu.before]]
+##[[menu.before]]
+##[[menu.after]]
+##  name = "Github"
+##  url = "https://github.com/alex-shpak/hugo-book"
+##  weight = 10
 
-[[menu.after]]
-  name = "Github"
-  url = "https://github.com/alex-shpak/hugo-book"
-  weight = 10
-
-[[menu.after]]
-  name = "Hugo Themes"
-  url = "https://themes.gohugo.io/hugo-book/"
-  weight = 20
+##[[menu.after]]
+##  name = "Hugo Themes"
+##  url = "https://themes.gohugo.io/hugo-book/"
+##  weight = 20
 
 [params]
     BookToC = false
