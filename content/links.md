@@ -17,7 +17,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 
 ## Radio
 ### Software Defined Radio (SDR)
-* 2018 Software-Defined Radio for Engineers - Free eBook by Analog Devices [link](http://www.analog.com/en/education/education-library/software-defined-radio-for-engineers.htm)
+* 2018 Software-Defined Radio for Engineers - Free eBook by Analog Devices [link](http://www.analog.com/en/education/education-library/software-defined-radio-for-engineers.html)
 * I/Q Data for Dummies [link](http://whiteboard.ping.se/SDR/IQ)
 * [Talk] 2013 Balint Seeber - Defcon 21 - All Your RFz Are Belong to Me - Hacking the Wireless World with Software Defined Radio [link](https://youtu.be/ZuNOD3XWp4A)
 * [Talk] 2015 Balint Seeber - Hacking the Wireless World with Software Defined Radio - 2.0 [link](https://youtu.be/x3UUazj0tkg)
@@ -52,7 +52,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * [Talk] 2013 Hugo Teso, Hack in the box security conference - Aircraft Hacking: Practical Aero Series [link](https://youtu.be/wk1jIKQvMx8)
 * [Talk] 2014 Hugo Teso, SEC-T - Going deeper on aviation security [link](https://youtu.be/LxGfv6mGXCs)
 * [Talk] 2015 Hugo Teso, Rooted CON - And last but not least important... [link](https://youtu.be/ByqRo8_fcw0)
-* [Talk] 2015 Balint Seeber - Rescuing ISEE-3 with Software-Defined Radio [link](https://youtu.be/BKIJp_9--kAs)
+* [Talk] 2015 Balint Seeber - Rescuing ISEE-3 with Software-Defined Radio [link](https://youtu.be/BKIJp_9--kA) 
 * [Talk] 28c3: Building a Distributed Satellite Ground Station Network - A Call To Arms [link](https://www.youtube.com/watch?v=iuwkzNjaPwc)
 * NASA deep space network [link](https://deepspace.jpl.nasa.gov)
 * Japanese planespotter building software for ADSB, ACARS, VDL and more [link](http://www2.plala.or.jp/hikokibiyori/soft/index.html)
