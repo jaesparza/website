@@ -35,41 +35,58 @@ $> git push -u origin master
 ### Updating the website contents:
 Edit locally. e.g. - let's create a new post:
 ```bash
-hugo new posts/my-first-post.md
+$> hugo new posts/my-first-post.md
 ```
 
 Preview changes by launching the server:
 ```bash
-hugo server -D --minify --theme hugo-coder # here we force the theme hugo-coder to be used
+$> hugo server -D --minify --theme hugo-coder # here we force the theme hugo-coder to be used
 ```
 Go to a web-browser and launch http://127.0.0.1:1313/
 
 If you are satisfied with the results:
 ```bash
-git add --all # Here add all all changes for commit or alternatively select the relevant ones
-git commit -m "your message"
-git push -u origin master
+$> git add --all # Here add all all changes for commit or alternatively select the relevant ones
+$> git commit -m "your message"
+$> git push -u origin master
 ```
 
 ### Notes on submodules for themes
 
 When cloning, remember to initialize the submodules for the themes. From the root of the repository:
 ```
-git submodule update --init
+$> git submodule update --init
 ```
 
 Updating the submodule:
 ```
-git pull origin master
-cd ..
-git add #here add the directory of the submodule
-git commit -m "Submodule updated"
-git push
+$> git pull origin master
+$> cd ..
+$> git add (NAME) # Name of the submodule here
+$> git commit -m "Submodule updated"
+$> git push
 ```
 or
 
 ```
-git submodule update --remote --merge
+$> git submodule update --remote --merge
+```
+
+### Working with branches
+
+Netlify under my configuration will deploy off master branch. To work on drafts I make branches that can be later merged into master for deployment.
+
+Create the new branch and push it to remote:
+```
+$> git pull
+$> git checkout -b (NAME) ## name of new branch
+$> git push origin (NAME) ## name of new branch
+$> git branch -a # this will show the new branch both locally and in remote
+```
+
+Switch to branch (NAME), this can be master or a different one:
+```
+$> git checkout (NAME) ## switch branch to master
 ```
 
 ## Resources
