@@ -16,9 +16,9 @@ theme = "book"
 ##  weight = 20
 
 [params]
-    BookToC = false
-    BookSearch = false
-    BookComments = false
+  BookToC = false
+  BookSearch = false
+  BookComments = false
 
 
   # (Optional, default docs) Specify root page to render child pages as menu.
