@@ -5,13 +5,5 @@ bookToc: false
 ---
 
 # About
-
-Content description
-
-## Presence in other platforms
-* GitHub
-* Linked-in
-* QRZ
-* YouTube
-
-## GDPR
+The beginning of an on-line notebook. 
+Good links for now.
