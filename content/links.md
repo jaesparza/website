@@ -15,19 +15,21 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * [Shop] on-line shops on topics that I am interested.
 * [Spanish] Resources in Spanish language.
 		
-Licensing: For information on the material licenses, check the original source or contact its publisher. This is only a list of third party material.
+Licensing: For information on the material licenses, check the original source or contact its publisher. This is only a list to third party material.
 
 ## Radio
 ### Software Defined Radio (SDR)
-* 2018 Software-Defined Radio for Engineers [link](http://www.analog.com/en/education/education-library/software-defined-radio-for-engineers.htm)
-* IQ for dummies [link](http://whiteboard.ping.se/SDR/IQ)
+* 2018 Software-Defined Radio for Engineers - Free eBook by Analog Devices [link](http://www.analog.com/en/education/education-library/software-defined-radio-for-engineers.htm)
+* I/Q Data for Dummies [link](http://whiteboard.ping.se/SDR/IQ)
 * [Talk] 2013 Balint Seeber - Defcon 21 - All Your RFz Are Belong to Me - Hacking the Wireless World with Software Defined Radio [link](https://youtu.be/ZuNOD3XWp4A)
 * [Talk] 2015 Balint Seeber - Hacking the Wireless World with Software Defined Radio - 2.0 [link](https://youtu.be/x3UUazj0tkg)
 
 ### Historic
-* Naval Radio Operators during WWII [link](http://jproc.ca/rrp/nro_ww2.htm)
-* Wireless Operator Training WWII RAF [link](http://www.bbc.co.uk/history/ww2peopleswar/stories/73/a3252773.shtm)
-* World War II US Navy Radio [link](http://www.navy-radio.com/flory/id9.htm)
+* Naval radio operations during WWII - Jerry Proc [link](http://jproc.ca/rrp/nro_ww2.html) 
+* Cold war navy radio technology (mostly Canadian) - Jerry Proc [link](http://jproc.ca/) 
+* Wireless Operator Training WWII RAF (BBC) [link](https://www.bbc.co.uk/history/ww2peopleswar/stories/73/a3252773.shtml)
+* World War II US Navy Radio - Rob Flory's site [link](http://www.navy-radio.com/flory/index.html)
+* US Navy Radio Communications - 1950s & 1960s http://www.navy-radio.com/
 * [Vintage Documentary] The Communications Officer Afloat (released 1974) [link](https://youtu.be/Hqn5QG_WP3g)
 * [Vintage Documentary] Staff Film Report 66-43B U.S. Army Communications Vietnam [link](https://youtu.be/zreruf3s8R0)
 * [Vintage Documentary] Amateur radio in former Soviet Union [link](https://youtu.be/ALSirXDJ42w)
@@ -35,7 +37,7 @@ Licensing: For information on the material licenses, check the original source o
 
 ### Misc
 * Retrotechtacular: WW2 paraset spy radio used by French resistance [link](https://hackaday.com/2013/11/26/retrotechtacular-wwii-paraset-spy-radio-used-by-french-resistance)
-* [YouTube] German ww2 wettersonde, radiosonde type C in operation by LA6NCA [link](https://youtu.be/MOaMgt-a_j4)
+* [YouTube] German WW2 wettersonde, radiosonde type C in operation by LA6NCA [link](https://youtu.be/MOaMgt-a_j4)
 * Global Frequency Database - catalog of signals and stations [link](http://qrg.globaltuners.com)
 * HF underground database - wiki/catalog of signals and stations [link](https://www.hfunderground.com/wiki/index.php/Main_Page)
 * Letter beacons [link](https://en.wikipedia.org/wiki/Letter_beacon)
@@ -48,7 +50,6 @@ Licensing: For information on the material licenses, check the original source o
 * The Conet Project: recordings of number radio stations in the HF bands [link](https://soundcloud.com/the-conet-project)
 * Radio direction finding [link](http://www.prc68.com/I/RDF.shtm)
 
-
 ### Space and air comms.
 * [Talk] 2013 Hugo Teso, Hack in the box security conference - Aircraft Hacking: Practical Aero Series [link](https://youtu.be/wk1jIKQvMx8)
 * [Talk] 2014 Hugo Teso, SEC-T - Going deeper on aviation security [link](https://youtu.be/LxGfv6mGXCs)
@@ -60,7 +61,7 @@ Licensing: For information on the material licenses, check the original source o
 * US military UHF TACSAT/DAMA [link](https://www.globalsecurity.org/military/library/policy/army/fm/6-02-90/fm6-02-90.pdf)
 
 ### Magnetic loop articles
-* Loftur E. Jónasson - to automatically tune a loop antenna [link](https://sites.google.com/site/lofturj/to-automatically-tune-a-magnetic-loop-antenna)
+* VE2LJX - "To automatically tune a loop antenna" [link](https://sites.google.com/site/lofturj/to-automatically-tune-a-magnetic-loop-antenna)
 * 9M2PJU - magnetic loop [link](https://9m2pju.blogspot.com/2011/04/9m2sxs-40m-20m-magnetic-loop-antenna.htm)
 * K3JLS - magnetic loop controller [link](http://k3jls.net/mlc.htm)
 * KK5JY - magnetic loop controller [link](http://kk5jy.net/magloop)
@@ -73,7 +74,7 @@ Licensing: For information on the material licenses, check the original source o
 ## Electronics
 * The construction of a triode [link](https://hackaday.com/2009/01/13/hand-made-triode)
 * [Shop] Antique Electronic Supply  [link](https://www.tubesandmore.com)
-* Nostalgia air  [link](http://www.nostalgiaair.org)
+* Nostalgia air - Online Antique and Vintage Radio References [link](http://www.nostalgiaair.org)
 * Electronics books from the tube age [link](http://tubebooks.org)
 * Building the Apolo Guidance Computer (in your basement) [link](http://klabs.org/history/build_agc)
 * AGC Schematics [link](http://klabs.org/history/ech/agc_schematics/index.htm)
@@ -122,6 +123,7 @@ Licensing: For information on the material licenses, check the original source o
 * OpenJML program verification tool for Java [link](http://www.openjml.org)
 * Python library for making nomograms [link](http://lefakkomies.github.io/pynomo-doc/index.htm)
 * Making tmux Pretty and Usable Making tmux Pretty and Usable [link](https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf)
+* Pandoc - a universal document converter https://pandoc.org/
 ## Personal websites
 * M1GEO [link](https://www.george-smart.co.uk)
 * EA4GPZ [link](http://destevez.net)
@@ -129,7 +131,7 @@ Licensing: For information on the material licenses, check the original source o
 * YO3GGX [link](https://www.yo3ggx.ro)
 * G4ILO Silent Key [link](http://www.g4ilo.com)
 * AJ4VD [link](https://www.swharden.com/wp)
-* LA6NCA Collector of WWWII German radios [link](http://www.laud.no/ww2)
+* LA6NCA Collector of WWW2 German radios [link](http://www.laud.no/ww2)
 * David Taylor's website on satellite radio [link](http://satsignal.eu)
 * EA1DDO [link](http://www.ea1ddo.es/index.php)
 * EA1CDV [link](http://ea1cdv.blogspot.com)
@@ -184,7 +186,7 @@ Licensing: For information on the material licenses, check the original source o
 ### DIY
 * Handmade miniature v12 engine featured in Hackaday [link](http://handmade.hackaday.com/1200-hours-of-work-results-in-the-smallest-v12-engine)
 * [YouTube] Patelo complete engine collection [link](https://www.youtube.com/user/yesuswilder10/videos)
-* [Vintage Documentary] M48 Patton Tank: "Birth of a Tank" 1954 US Army; The Big Picture TV-292 [link](https://youtu.be/b-DZdVwBKPY)
+* [Vintage Documentary] M48 Patton Tank: "Birth of a Tank" 1954 US Army; The Big Picture TV-292 [link](https://www.youtube.com/watch?v=csOFJncNn3I)
 * [Shop] Servocity: mechanical components shop [link](https://www.servocity.eu)
 * The heirloom chemistry set: [link](https://hackaday.com/2013/11/18/heirloom-chemistry-set)
 * [YouTube] Richard Feynman lectures on Physics [link](https://youtu.be/j3mhkYbznBk)
