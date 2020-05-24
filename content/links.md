@@ -60,7 +60,6 @@ The links are groupd by category (see menu on the right) and also tagged where r
 
 ### Magnetic loop articles
 * VE2LJX - "To automatically tune a loop antenna" [link](https://sites.google.com/site/lofturj/to-automatically-tune-a-magnetic-loop-antenna)
-* 9M2PJU - magnetic loop [link](https://9m2pju.blogspot.com/2011/04/9m2sxs-40m-20m-magnetic-loop-antenna.htm)
 * KK5JY - magnetic loop controller [link](http://kk5jy.net/magloop)
 * EA7BDD - loop antenna collection [link](http://www.qrz.com/db/EA7BDD)
 * VE3UK  - loop antenna collection [link](http://www.qrz.com/db/VE3UK)
