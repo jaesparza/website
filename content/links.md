@@ -152,6 +152,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * Martin Miller personal website [link](http://www.martin-miller.us)
 * Most powerful supercomputers and brains [link](http://www.darkroastedblend.com/2009/01/most-powerful-supercomputers-brains-and.htm)
 * Just Landed - 61 Hours - H1N1 [link](https://vimeo.com/4600351)
+* COVID-19 Dashboard by the Center of Science and Engineering (CSSE) at Johns Hopkings University [link to arcgis](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6), raw data on COVID-19 propagation [link to github repository](https://github.com/CSSEGISandData/COVID-19).
 * C64 conversion [link](http://c64.superdefault.com)
 * [SPANISH] Problemas en la fotograf&iacute;a de museos [link](http://golemp.blogspot.com/2013/12/problemas-en-la-fotografia-de-museos.htm)
 * Plex - IBM typography [link](https://github.com/IBM/plex/releases/tag/v1.1.3)
