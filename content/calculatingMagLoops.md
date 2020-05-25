@@ -43,15 +43,24 @@ Although the current in a conductor flows in the outer layers due to the skin ef
 
 
 ## Single loop inductance
+The loop inductance can be approximated by:  
 
 {{< katex >}}
 L_{loop} [Henry] \approx \mu_{0}\mu_{r}\cfrac{D}{2}\bigg[\ln\bigg(\cfrac{ 8D}{d}\bigg)-2 \bigg]
 {{< /katex >}}
 
 
+## Reactance calculations
 
+Inductive reactance {{< katex >}}X_{L} = 2 \pi f L_{loop}{{< /katex >}}
 
-## Additional equations
+Capacitive reactance {{< katex >}}X_{C} = \cfrac{1}{2 \pi f C}{{< /katex >}}
+
+When resonant {{< katex >}}X_{L} = X_{C} \Rightarrow{{< /katex >}}
+
+ {{< katex >}} \Rightarrow 2 \pi f L_{loop} = \cfrac{1}{2 \pi f C}{{< /katex >}}
+
+## Basic equations
 {{< katex >}} \mu{{< /katex >}}: Absolute permeability  
 {{< katex >}} \mu_{r}{{< /katex >}}: Relative permeability  
 {{< katex >}} \mu_{0}{{< /katex >}}: Permeability of free space  
@@ -66,9 +75,8 @@ l = 2\pi r
 {{< /katex >}}  
 {{< katex >}}
 A = \pi r ^ 2
-{{< /katex >}}
-
-
+{{< /katex >}}  
+Relation between frequency and wavelength  
 {{< katex >}}
 \lambda = \cfrac{c}{f}
 {{< /katex >}}
