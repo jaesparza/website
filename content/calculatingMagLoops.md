@@ -10,31 +10,49 @@ katex: true
 The formulae below models the behaviour of a magnetic loop. Additional models are used to estimate the radiation resistance and the inductance of a single-turn loop.
 Although significant ammount of litterature exist on the subject (these antennas exists since the 60s), I still have not found a single, self-contained resource that facilitates all the calculations needed to design a small transmitting loop. This summary intends to fill that gap.
 
+{{< katex >}}
+R_{r} N A \lambda L_{loop} \mu D d C_{dist} l Q R_{AC} R_{r} \Delta X_{L} V_{c} I_{L} P  X_{C} f C
+{{< /katex >}}
+
+
+{{< katex >}} {{< /katex >}}
+
+
+
+<a name="constants_anchor"></a>Constants: 
+
+|{{< katex >}} \pi {{< /katex >}}|  {{< katex >}} 3.1415 {{< /katex >}}| {{< katex >}} \mu_{0}{{< /katex >}} | {{< katex >}} 4 \pi \times 10^{-7} \;[H/m] {{< /katex >}}| 
+|----|----|----|-----|
+| {{< katex >}} c {{< /katex >}} | {{< katex >}} 3 \times 10^{8} \;[m/s]{{< /katex >}}| {{< katex >}} \mu_{r \_ air}{{< /katex >}}  |  {{< katex >}} 0.99994 \; [H/m]  {{< /katex >}}|
+
+
 ## Equations specific to a loop antenna
 ### Radiation resistance
 The radiation resistance is determined by the following expression:  
 
 {{< katex >}}
-R_{r} = 3.12 \times 10^4 \bigg(\cfrac{NA}{\lambda ^ 2}\bigg)^2
+R_{r} = 3.12 \times 10^4 \bigg(\cfrac{NA}{\lambda ^ 2}\bigg)^2 \; [Ohms]
 {{< /katex >}}
 
-As it can be seen, the radiation resistance is proportional to the square of the number of loops (quadratic growth). As a consequence higher losses are present in multi-loop antennas.
+As it can be seen, the radiation resistance {{< katex >}} R_{r} {{< /katex >}} is proportional to the square of the number of loops {{< katex >}} N {{< /katex >}} and the area described by the loop {{< katex >}} A {{< /katex >}} As a consequence higher losses are present in multi-loop antennas. In the expression {{< katex >}} \lambda {{< /katex >}} is the signal wavelenght at a particular frequency.
 
 ### Single loop inductance
 The loop inductance can be approximated by:  
 
 {{< katex >}}
-L_{loop} [Henry] \approx \mu_{0}\mu_{r}\cfrac{D}{2}\bigg[\ln\bigg(\cfrac{ 8D}{d}\bigg)-2 \bigg]
+L_{loop} \approx \mu_{0}\mu_{r}\cfrac{D}{2}\bigg[\ln\bigg(\cfrac{ 8D}{d}\bigg)-2 \bigg] \: [Henry] 
 {{< /katex >}}
+
+Where {{< katex >}} D {{< /katex >}} is the loop diameter and {{< katex >}} d {{< /katex >}} is the diameter (section) of the conductor used to construct the loop. The constants for absolute permeability of vacuum {{< katex >}} \mu_{0}{{< /katex >}} and relative permeability of air {{< katex >}} \mu_{r}{{< /katex >}} are provided in the [constants](#constants_anchor) section.
 
 ### Distributed capacitance (MEDHURST?)
 
-Any inductor has a parasitic capacitance. When dimensioning a loop antenna it is key to take it into consideration.
+Any inductor has a parasitic capacitance and, when dimensioning a loop antenna, it is key to take it into consideration.
 When calculatingn the maximum frequency at which the antenna is to operate, the distributed capacitance has to be added to the minimum capacitance that the tunning capacitor can reach due to construction. This determines the total tunning capacitance that is applied to the loop to reach resonance. If this value is to high for the given loop dimensions, the loop lenght will have to be shortened. This means that the loop will require a higher capacitance that can be reached.
 The distributed capacitance has to be added to the tunning capacitor minimum capacitance.
 
 {{< katex >}}
-C_{dist}
+C_{dist} = 0.82 \times l
 {{< /katex >}}
 
 {{< hint warning >}}
