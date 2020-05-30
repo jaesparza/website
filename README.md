@@ -104,6 +104,10 @@ To merge changes from master into the branch (NAME), assuming that (NAME has ben
 git rebase master
 git push ## changes will be sent upstream
 ```
+To list all the branches in the repository
+```
+git branch -a
+```
 
 ## Resources
 * Markdown format cheatsheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
