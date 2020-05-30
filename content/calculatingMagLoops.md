@@ -3,6 +3,7 @@ title: design calculations
 weight: 3
 bookToc: true
 katex: true
+bookHidden: true
 ---
 
 # Magnetic loop design calculations

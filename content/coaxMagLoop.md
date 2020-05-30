@@ -3,6 +3,7 @@ title: coax mag-loop
 weight: 2
 bookToc: false
 katex: true
+bookHidden: true
 ---
 
 # A lightweight coax-loop antenna

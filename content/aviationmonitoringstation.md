@@ -2,6 +2,7 @@
 title: aviationmonitoring
 weight: 2
 bookToc: false
+bookHidden: true
 ---
 
 # Aviation monitoring station
