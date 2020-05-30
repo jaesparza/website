@@ -95,18 +95,18 @@ $> git checkout master ## switch branch to master
 
 To peform local changes in the new branch and submitted to the remote one, first registere it:
 ```
-git push --set-upstream origin (NAME)
-git push ## will send changes to remote (NAME)
+$> git push --set-upstream origin (NAME)
+$> git push ## will send changes to remote (NAME)
 ```
 
 To merge changes from master into the branch (NAME), assuming that (NAME has ben checkedout)
 ```
-git rebase master
-git push ## changes will be sent upstream
+$> git rebase master
+$> git push ## changes will be sent upstream
 ```
 To list all the branches in the repository
 ```
-git branch -a
+$> git branch -a
 ```
 
 ## Resources
