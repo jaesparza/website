@@ -1,8 +1,8 @@
 ---
-title: aviationmonitoring
-weight: 2
+title: air-traffic monitor
+weight: 30
 bookToc: false
-bookHidden: true
+bookHidden: false
 ---
 
 # Aviation monitoring station

@@ -1,8 +1,8 @@
 ---
-title: loopantenna
-weight: 2
+title: magnetic loops
+weight: 40
 bookToc: false
-bookHidden: true
+bookHidden: false
 katex: true
 ---
 
