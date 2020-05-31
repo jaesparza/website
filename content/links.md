@@ -39,6 +39,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * Global Frequency Database - catalog of signals and stations [link](http://qrg.globaltuners.com)
 * HF underground database - wiki/catalog of signals and stations [link](https://www.hfunderground.com/wiki/index.php/Main_Page)
 * Letter beacons [link](https://en.wikipedia.org/wiki/Letter_beacon)
+* Hellschreiber beacon in a microcontroller [link](https://brainwagon.org/2012/01/11/hellduino-sending-hellschreiber-from-an-arduino/).
 * [Talk] DEFCON 19: Build your own Synthetic Aperture Radar [link](https://youtu.be/MViVyocQhVw)
 * [Talk] Notacon 10 - DC to Daylight A whirlwind tour of the radio spectrum, and why it matters [link](https://youtu.be/97m6QmnplxQ)
 * [Shop] Martin RF supply: US-based RF components shop [link](http://www.martinrfsupply.com)
@@ -98,12 +99,14 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * Mastering stack and heap for system reliability: Part 1 – Calculating stack size [link](https://www.embedded.com/design/debug-and-optimization/4394132/Mastering-stack-and-heap-for-system-reliability--Part-1---Calculating-stack-size)
 * A step-by-step guide to using static analysis to debug embedded software [link](https://www.embedded.com/design/debug-and-optimization/4431979/2/A-step-by-step-guide-to-using-static-analysis-to-debug-embedded-software)
 * FreeRTOS Add-ons [link](https://github.com/michaelbecker/freertos-addons)
-* Code generation for embeddded devices with magicdraw [link](https://www.youtube.com/watch?v=nncWlwBhySQ)
+* [YouTube] Code generation for embeddded devices with magicdraw [link](https://www.youtube.com/watch?v=nncWlwBhySQ)
 * PID without a PhD [link](https://www.wescottdesign.com/articles/pid/pidWithoutAPhd.pdf)
 * ARM, Docker and RasberryPi [link](https://blog.hypriot.com)
-* FPGA design with Free Software: The Lattice iCE40 HX1K/HX8K FPGA [link](https://youtu.be/eWo7CINPu4w)
+* [YouTube] FPGA design with Free Software: The Lattice iCE40 HX1K/HX8K FPGA [link](https://youtu.be/eWo7CINPu4w)
 * Redis: in-memory data structure store [link](https://redis.io)
 * quantum leaps on state machines [link](https://www.state-machine.com)
+* osPID an open-source PID controller [linl](http://ospid.com/).
+
 ## Misc. Software
 * Notes on the practice of software engineering by Joel Spolsky [link](https://www.joelonsoftware.com)
 * [Talk] Software as art - TED talk [link](https://www.ted.com/talks/golan_levin_on_software_as_art)
@@ -120,6 +123,10 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * Python library for making nomograms [link](http://lefakkomies.github.io/pynomo-doc/)
 * Making tmux Pretty and Usable Making tmux Pretty and Usable [link](https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf)
 * Pandoc - a universal document converter https://pandoc.org/
+* mapbox SDK https://www.mapbox.com/.
+* 1959 - "Some Studies in Machine Learning Using the Game of Checkers" [link](http://www2.stat.duke.edu/~sayan/R_stuff/Datamatters.key/Data/samuel_1959_B-95.pdf).
+* 0x10c [wikipedia](https://en.wikipedia.org/wiki/0x10c) a hard science fiction game with a custom-built 16bit processor that never really took off. Mentioned in [osnews](https://www.osnews.com/story/25765/notch-unveils-0x10c-space-sim-with-custom-virtual-processors/).
+
 ## Personal websites
 * M1GEO [link](https://www.george-smart.co.uk)
 * EA4GPZ [link](http://destevez.net)
@@ -186,6 +193,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * [Shop] Servocity: mechanical components shop [link](https://www.servocity.eu)
 * The heirloom chemistry set: [link](https://hackaday.com/2013/11/18/heirloom-chemistry-set)
 * [YouTube] Richard Feynman lectures on Physics [link](https://youtu.be/j3mhkYbznBk)
+* Kenbak implementation in arduino [link](http://funnypolynomial.com/software/arduino/kenbak.html).
 
 ### Cold war
 * Inside the Apocalyptic Soviet Doomsday Machine [link](https://www.wired.com/2009/09/mf-deadhand/?currentPage=a)
@@ -216,6 +224,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 ### Space
 * SatNOGS Open Source global network of satellite ground-stations [link](https://satnogs.org)
 * The librespace community website [link](https://community.libre.space)
+* 360 panorama of the Space Shuttle by [National Geographic](https://www.nationalgeographic.com/news/2012/4/120416-nasa-space-shuttle-discovery-smithsonian-360-tour-panorama-science/).
 
 {{< hint warning >}}
 Licensing: I do not hold the copyright of these resources. If you want to reuse them, check the license of the original source and/or contact its publisher.
