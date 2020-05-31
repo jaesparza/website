@@ -14,6 +14,8 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * [Documentary], [VintageDocumentary] Documentaries, mostly technical, some historical and a few combining both aspects.
 * [Shop] on-line shops on topics that I am interested.
 * [Spanish] Resources in Spanish.
+* [Podcast]
+* [YouTube]
 
 ## Radio
 ### Software Defined Radio (SDR)
@@ -225,6 +227,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * SatNOGS Open Source global network of satellite ground-stations [link](https://satnogs.org)
 * The librespace community website [link](https://community.libre.space)
 * 360 panorama of the Space Shuttle by [National Geographic](https://www.nationalgeographic.com/news/2012/4/120416-nasa-space-shuttle-discovery-smithsonian-360-tour-panorama-science/).
+* [Podcast] Small Steps, Giant Leaps https://player.fm/series/small-steps-giant-leaps
 
 {{< hint warning >}}
 Licensing: I do not hold the copyright of these resources. If you want to reuse them, check the license of the original source and/or contact its publisher.
