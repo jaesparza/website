@@ -206,7 +206,7 @@ The links are groupd by category (see menu on the right) and also tagged where r
 * Nakskov submarine [link](https://da.wikipedia.org/wiki/S-359_(U359))
 
 ### WW2
-* [Talk] 2013 Anja Drephal WW2 Hackers Stalin's best men, armed with paper and pen [link](https://media.ccc.de/v/30C3_-_5474_-_en_-_saal_g_-_201312272145_-_world_war_ii_hackers_-_anja_drepha)
+* [Talk] 2013 Anja Drephal WW2 Hackers Stalin's best men, armed with paper and pen [link](https://media.ccc.de/v/30C3_-_5474_-_en_-_saal_g_-_201312272145_-_world_war_ii_hackers_-_anja_drephal)
 * Beeping the enemy into submission [link](https://hackaday.com/2018/04/17/beeping-the-enemy-into-submission)
 * The Kammhuber Line [link](https://en.wikipedia.org/wiki/Kammhuber_Line)
 * The German tank problem [link](https://en.wikipedia.org/wiki/German_tank_problem)
