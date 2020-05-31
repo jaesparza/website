@@ -99,7 +99,7 @@ $> git push --set-upstream origin (NAME)
 $> git push ## will send changes to remote (NAME)
 ```
 
-To merge changes from master into the branch (NAME), assuming that (NAME has ben checkedout)
+To merge changes from master into the branch (NAME), assuming that (NAME has been checkedout)
 ```
 $> git rebase master
 $> git push ## changes will be sent upstream
