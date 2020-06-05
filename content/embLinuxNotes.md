@@ -16,7 +16,7 @@ sudo armbian-config
 ## navigate System --> hardware --> perform selection
 ## reboot system
 ```
-![eniac](/images/armbian_config_i2c.jpg)
+![devSelection](/images/armbian_config_i2c.jpg)
 
 Check if i2c masters are detected:
 
