@@ -8,7 +8,7 @@ bookHidden: false
 # Aviation monitoring station
 
 ## Disclamer
-* It is your own responsability to figure out if it is legal to build and operate a device like this in your country.
+* It is your own responsability to figure out if it is legal to build and operate a device like this in your country of residence.
 * This is not designed to be an instrument for aerial navigation.
 * This project has been developed only with didactic purposes in mind.
 
