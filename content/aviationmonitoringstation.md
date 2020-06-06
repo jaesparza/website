@@ -1,4 +1,4 @@
---
+---
 title: air-traffic monitor
 weight: 30
 bookToc: false
@@ -8,9 +8,10 @@ bookHidden: false
 # Aviation monitoring station
 
 ## Disclamer
-* Legal limits, privacy considerations.
-* Didactic purposes
+* It is your own responsability to figure out if it is legal to build and operate a device like this in your country.
 * This is not designed to be an instrument for aerial navigation.
+* This project has been developed only with didactic purposes in mind.
+
 
 ## Project scope
 * ADSB
@@ -18,6 +19,8 @@ bookHidden: false
 * VHF airband comms
 
 ## Hardware
+
+
 ### SDR radios
 ### Antennas and filters
 ### Embedded linux platform
@@ -25,6 +28,8 @@ bookHidden: false
 * Waterproofing
 * Power delivery
 * Humidity and temperature sensor
+
+
 ## Software
 ### ADSB decoders
 ### ACARS decoders
@@ -32,6 +37,7 @@ bookHidden: false
 ### Extending data processing via socket
 ### Sensor interfacing
 ### Data storage and processsing
+
 ## Deployment and tests
 ## Commercial alternatives
 ## References
