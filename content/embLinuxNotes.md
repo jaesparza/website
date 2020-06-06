@@ -189,6 +189,3 @@ To run it for example for channel 0 with a delay of 1 sencond between reads:
 ```bash
 ja@orangepi-r1:~/bmp280-python/examples$ python3 myTPreader.py -c 0 -d 1
 ```
-
-To do:
-* Provide an argument to the script with the bus number -b #, the reading -t or -p or -tp and the sleep time -d 
