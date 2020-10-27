@@ -8,7 +8,7 @@ katex: false
 
 # DIY Magnetic loop antenna for 20-10 m bands
 
-A description of the most relevant aspects in the construction of one of my loops, covering hardware, sofware and mechanical aspects.
+A description of the most relevant aspects in the construction of one my loops, covering hardware, sofware and mechanical aspects.
 
 **It contains the tricky parts that I have learnt throughout the way...**
 
@@ -26,7 +26,7 @@ A description of the most relevant aspects in the construction of one of my loop
 * regular electronic shops
 * insert here links to the pdf of the datasheets https://github.com/jaesparza/Loop-controller/tree/master/doc
 
-![antenna]() 
+![antenna in tripod]() 
 * Picture 1: Loop in the tripod
 
 ## Antenna construction
