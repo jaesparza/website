@@ -60,6 +60,10 @@ The stepper motor is a key component that has to be selected carefully for this 
 
 **PRO tip**: I also tried a NEMA 17 400 steps stepper motor, which can successfully rotate the capacitor. However, this comes at the cost of much higher current draw (up to 700 mA) to achieve operation towards the end. I recommend using a stepper motor with reduction gear to stay within a comfortable margin of 150 mA of current in the motor windings. 
 
+The stepper motor holding bracket has to be selected so it is compatible with the stepper with planetary reduction box, meaning that it shall be possible to use holding screws within 14mm from the center shaft. See for comparison regular holding bracket and holding bracket compatible with the gearbox.
+
+![Holding brackets]()
+
 ## Electronic control
 
 ![ecu]()
