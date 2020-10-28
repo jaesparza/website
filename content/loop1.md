@@ -60,14 +60,20 @@ The stepper motor is a key component that has to be selected carefully for this 
 
 **PRO tip**: I also tried a NEMA 17 400 steps stepper motor, which can successfully rotate the capacitor. However, this comes at the cost of much higher current draw (up to 700 mA) to achieve operation towards the end. I recommend using a stepper motor with reduction gear to stay within a comfortable margin of 150 mA of current in the motor windings. 
 
-The stepper motor holding bracket has to be selected so it is compatible with the stepper with planetary reduction box, meaning that it shall be possible to use holding screws within 14mm from the center shaft. See for comparison regular holding bracket and holding bracket compatible with the gearbox.
+The stepper motor holding bracket has to be selected so it is compatible with the stepper with planetary reduction box, meaning that it shall be possible to use holding screws within 14mm from the center shaft. See for comparison regular holding bracket and holding bracket compatible with the gearbox. Brackets compatible with steppers with gearbox are a bit less common but still possible to find at good prices from Chinese resellers.
 
 ![Holding brackets]()
 
 ## Electronic control
 
+The electronic controller is responsible for: 
+* Driving the stepper motor,
+* reading and displaying the position on the LCD screen and
+* stopping the movement of the stepper if approaching the turning limit.
+
 ![ecu]()
 * Picture 3: Detail of the electronic control unit
+
 * Overview and fetures: speed, direciton control and position idication
 * Transmission and coupling - resolution calculation
 * The advantage of using a potentiometer, is that its value stays in place after power-off making it possible to read where it was left on power up.
