@@ -6,7 +6,7 @@ bookHidden: false
 katex: false
 ---
 
-# Magnetic loop antenna for 20-10 m bands
+# Magnetic loop antenna 14-28 MHz
 
 In this page I describe the most relevant aspects in the construction of one of my loops to operate in the 20 to 10m bands (14 MHz to 28 MHz). I cover antenna mechanical construction, hardware, software and mechanical perspectives. Simply put, this is a compilation of details that I have learnt over this project and that I wish that somebody would have told me in the beginning. It is the hope that this will encourage future builders and facilitate the construction of quality loops.
 
@@ -96,32 +96,68 @@ Diring the stepper motor for optimal operation is a key aspect for succesful ant
 
 In addition to speed, carefully adjusting the following aspects wil greatly improve performance:
 * **Microstepping** will allow for smooth stepper roation. The stepper driver used in this project is configured to a 16 step reduction. This is a fixed configuration via dip switches, but it could be programmable if desired via GPIOs.
-* **Disable driver when not rotating** is a MUST. It will avoid noise in the radio receiver and it will decrease current draw considerably. Therefore, the enable line in the driver has to be toggled in the motor driver.
+* **Disable driver when not rotating** is a MUST. It will avoid noise in the radio receiver and it will decrease current draw considerably. Therefore, the enable line in the driver has to be toggled accordingly when the motor is not in use.
 * **Tune maximum current** so microstepping works correctly and the motor does not exert more torque than necessary. It will decrease the heat disipated in the stepper motor driver and also decrease de vibrations in the mechanical assembly.
 
 Based on the above, the following considerations apply to this specific application:
 * In this build a 200 steps stepper motor with a 1:5 gearbox is used, therefore and accounting for the microstepping configuration: 16 micro_steps/step * 200 steps/motor_rotation * 5 motor_rotation/out_shaft = 8000 micro_steps/motor_rotation
 * Due to the way microstepping works, if no torque is held, the position achived through microstepping will be lost. In this application this is acceptable.
 
-**WARNING** do not disconnect the motor while the driver is powered and especially if the motor is rotating or holding torque, else the driver will be damaged.
+**WARNING:** do not disconnect the motor while the driver is powered and especially if the motor is rotating or holding torque, else the driver will be damaged.
 
 ## Hardware considerations
-* Powering the board
-* PCB configuration - jumper settings
-* Motor enable at power-up fix
-* HF noise in the control line - RC lowpass filter - 50 Hz Modulated 1-8 kHz signal
+The stepper motor is operated at 12V and the rest of the electronics at 5V. To simplify how to power the control unit, I supply 12V directly from a regulated power supply to the stepper motor driver and, from that line, regulate through a small switch-mode down converter the 5V for the rest of the electronics. To power the whole control unit a wall adapter or the same supply used at 13.8 for radio equipment would work fine as well.
+
+In order to use the control board with the ADC reading the absolute position sensor in the tuning unit box, a specific jumper configuration is required. Additional details can be found in [[hardware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/pcb/initialPrototype).
+
+**IMPORTANT:** The motor driver shall be disabled through reseat and power-up, else unwanted steps will be triggered in the stepper motor. This is implemented through an pull-up resistor in the enable line of the driver (EN, active-low).
+
+**IMPORTANT:** Apply a low-pass filter to the ADC line to avoid false end-stops. The ADC reads the multiturn-potentiometer responsible for absolute positioning. This potentiometer is connected through several meters of cable, running up to the tuning unit and together with the motor control signals. This setup is prone to pick-up electrical noise in the ADC lines, in this case the signal present is rich in harmonics between 1 to 8 kHz and modulated at 50 Hz. This is resulting in spurious triggers of the sofware end-stop protections. In order to remedy it, a hardware-based low-pass filter has been added at the ADC input. The filter is calculated to have a cut-off frequency of **XX kHz**.
+
 
 <div style="text-align:center">
 <img src="/img/.jpg" />
-<figcaption><b>Picture X: Noise at the ADC input</b></figcaption>
+<figcaption><b>Picture X: Unfiltered signal in the ADC line when operating the stepper motor, triggering the end-stop protections.</b></figcaption>
 </div>
 
+
+<div style="text-align:center">
+<img src="/img/.jpg" />
+<figcaption><b>Picture X: filtered signal.</b></figcaption>
+</div>
+
+
 ## Software considerations
-* Select operational mode butterfly cap vs vacuum capacitor 
-* Go through the software and spot key aspects (rt constraints, configuration, etc...)
-* sofware design, singleton, 
-* Combining update of LCD screen with driving the stepper motor
-* With these needs in mind and for simplicity the controller is based on an Arduino pro mini and programmed in C++. 
+The stepper motor is driven from a controller that can be configured to drive regular broadcasting capacitors, butterfly capacitors or vacuum capacitors. The main considerations from a software point of view are:
+* Number of rotations needed to cover from minimum to maximum capacitance.
+* Strategy to achieve absolution positioning.
+
+In this case, the strategy to achive absolute positioning is direct reading of a potentiometer, which by construction keeps its value after power-off. This means that it is not needed from a software point of view to keep a count of steps sent to the driver for positioning purposes and to store them in EEPROM through power-cycles. Although both options can be activated in the software through `#defines`, relying on a hardware positioning is more robust. A complete description of the configuration options is available at [[firmware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/Software/tunerControllerGen1#how-to-configure-the-firmware).
+
+* Go through the software and spot key aspects (rt constraints).
+* sofware design, UML overview.
+* Combining update of LCD screen with driving the stepper motor.
+
+```
+virtual void execute() {
+  uint8_t moved = false;
+
+  userInput->readInputs();
+  display->update(getCount());
+  
+  if (checkLimits()) {
+    moved = operateMotor(userInput->getSpeed(), userInput->isRotateCW(), 
+      userInput->isRotateCCW());
+  }
+ 
+  if (moved) {
+    display->updateRefreshCount();
+  } else {
+    display->updateImmediate();
+  }
+}
+```
+**IMPORTANT** Liquid cristal fast library.
 
 <div style="text-align:center">
 <img src="/img/.jpg" />
@@ -155,4 +191,3 @@ Components
 * PVC electricity box
 * 2 x Cable gland that fit a 7/8" cable.
 * Rj45 ruggedized connector
-
