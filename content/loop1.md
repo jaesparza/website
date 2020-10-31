@@ -67,7 +67,7 @@ The components in the tuning unit are mounted on a plexiglass support. Plexiglas
 
 The stepper motor is a key component that has to be selected carefully for this application. Factors that are especially important are step size, power rating and reduction. In order to operate the vacuum capacitor without any external reduction, I have chosen a NEMA 17, 200 steps/rotation with planetary reduction gear of 5:1. This gives me enough torque to move the capacitor as well as a smoother rotation.
 
-**PRO tip**: I also tried a NEMA17 400 steps stepper motor, which can successfully rotate the capacitor. However, this comes at the cost of much higher current draw (up to 700 mA) to achieve operation towards the end of the rotation. I recommend using a stepper motor with reduction gear to stay within a comfortable margin of 150 mA of current in the motor windings. 
+**PRO tip**: I also tried a NEMA17 400 steps stepper motor, which can successfully rotate the capacitor. However, this comes at the cost of much higher current draw (up to 700 mA) to achieve operation towards the end of the rotation. I recommend using a stepper motor with reduction gear to stay within a comfortable margin of 150 mA of current at 12V in the motor windings. 
 
 The stepper motor holding bracket has to be selected so it is compatible with the stepper with planetary reduction box, meaning that it shall be possible to use holding screws within 14mm from the center shaft. See for comparison regular holding bracket and holding bracket compatible with the gearbox. Brackets compatible with steppers with gearbox are a bit less common but still possible to find at good prices from Chinese resellers.
 
@@ -126,13 +126,15 @@ In order to use the control board with the ADC reading the absolute position sen
 <figcaption><b>Picture X: filtered signal.</b></figcaption>
 </div>
 
+### AB encoders, gray encoders and multiturn potentiomters
+
 
 ## Software considerations
-The stepper motor is driven from a controller that can be configured to drive regular broadcasting capacitors, butterfly capacitors or vacuum capacitors. The main considerations from a software point of view are:
+The stepper motor is driven from a controller that can be configured to handle regular broadcasting capacitors, butterfly capacitors or vacuum capacitors. The main considerations from a software point of view are:
 * Number of rotations needed to cover from minimum to maximum capacitance.
 * Strategy to achieve absolution positioning.
 
-In this case, the strategy to achive absolute positioning is direct reading of a potentiometer, which by construction keeps its value after power-off. This means that it is not needed from a software point of view to keep a count of steps sent to the driver for positioning purposes and to store them in EEPROM through power-cycles. Although both options can be activated in the software through `#defines`, relying on a hardware positioning is more robust. A complete description of the configuration options is available at [[firmware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/Software/tunerControllerGen1#how-to-configure-the-firmware).
+In this case, the strategy to achive absolute positioning is direct reading of a potentiometer, which by construction keeps its value after power-off. Additionaly, by mechanical design, each position positiong in the tuning range has a unique value. This means that it is not needed from a software point of view to keep a count of steps sent to the driver, or a number of full rotations for positioning purposes and to store them in EEPROM through power-cycles. Although both options can be activated in the software through `#defines`, relying on a hardware positioning is more robust. A complete description of the configuration options is available at [[firmware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/Software/tunerControllerGen1#how-to-configure-the-firmware).
 
 * Go through the software and spot key aspects (rt constraints).
 * sofware design, UML overview.
