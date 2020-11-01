@@ -100,7 +100,7 @@ In addition to speed, carefully adjusting the following aspects wil greatly impr
 * **Tune maximum current** so microstepping works correctly and the motor does not exert more torque than necessary. It will decrease the heat disipated in the stepper motor driver and also decrease de vibrations in the mechanical assembly.
 
 Based on the above, the following considerations apply to this specific application:
-* In this build a 200 steps stepper motor with a 1:5 gearbox is used, therefore and accounting for the microstepping configuration: 16 micro_steps/step * 200 steps/motor_rotation * 5 motor_rotation/out_shaft = 8000 micro_steps/motor_rotation
+* In this build a 200 steps stepper motor with a 1:5 gearbox is used, therefore and accounting for the microstepping configuration: 16 micro_steps/step * 200 steps/motor_rotation * 5 motor_rotation/shaft_rotation = 8000 micro_steps/shaft_rotation
 * Due to the way microstepping works, if no torque is held, the position achived through microstepping will be lost. In this application this is acceptable.
 
 **WARNING:** do not disconnect the motor while the driver is powered and especially if the motor is rotating or holding torque, else the driver will be damaged.
