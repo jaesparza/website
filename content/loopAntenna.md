@@ -24,6 +24,8 @@ Notes no tuning units
 * Driving stepper motors and reducing vibrations
 * L2: Butterfly variable capacitor tuning unit
 * L2: Vacuum capacitor tuning unit
+* AB encoders, gray encoders and multiturn potentiomters
+
 
 Notes on controllers
 * Wired stepper controller

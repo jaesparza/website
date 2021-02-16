@@ -126,8 +126,6 @@ In order to use the control board with the ADC reading the absolute position sen
 <figcaption><b>Picture X: filtered signal.</b></figcaption>
 </div>
 
-### AB encoders, gray encoders and multiturn potentiomters
-
 
 ## Software considerations
 The stepper motor is driven from a controller that can be configured to handle regular broadcasting capacitors, butterfly capacitors or vacuum capacitors. The main considerations from a software point of view are:
