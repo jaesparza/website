@@ -2,7 +2,7 @@
 title: magnetic loops
 weight: 40
 bookToc: false
-bookHidden: false
+bookHidden: true
 katex: true
 ---
 
