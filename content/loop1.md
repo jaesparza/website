@@ -8,15 +8,14 @@ katex: false
 
 # Magnetic loop antenna 14-28 MHz
 
-In this page I describe the most relevant aspects in the construction of one of my loops to operate in the 20 to 10m bands (14 MHz to 28 MHz). I cover antenna mechanical construction, hardware, software and mechanical perspectives. Simply put, this is a compilation of details that I have learnt over this project and that I wish that somebody would have told me in the beginning. It is the hope that this will encourage future builders and facilitate the construction of quality loops.
+In this page I describe the most relevant aspects in the construction of one of my loops to operate in the 20 to 10m bands (14 MHz to 28 MHz). I cover antenna mechanical construction, hardware, software and mechanical perspectives. This is a compilation of design notes that I have developed over this project and that I would have liked to have in the beginning. It is the hope that this will encourage future builders and facilitate the construction of quality loops.
 
 ## Specifications
-* Power rating: tested up to 100 Watts (theoretical is higher?)
+* Power rating: 100 Watts (tested)
 * Bandwidth: TX 14 to 28 MHz
-* Loop diameter: XX cm
+* Loop diameter: 88 cm
 * Tuning through vacuum capacitor with electronic remote control
-* Hardware end-stop protection through absolute positioning
-* Heavy-duty vertical support
+* Rotation end-stop protection through absolute positioning
 
 <div style="text-align:center">
 <img src="/img/" />
@@ -29,7 +28,7 @@ The outer loop of the antenna is made of cellflex/heliax cable (section 7/8"). T
 
 The inner loop is made of thick soild copper wire and has a diameter of 19 cm. It is the weakest part of the loop and for a more robust finish this should be replaced by an inner loop constructed with coax cable (RG-58 will suffice).
 
-The vertical support of the anntena is a wooden stick, here it is important to emphasize that no metallic supports shall be used to hold the antenna, as they will affect its efficiency. The attachment of the loop to the wooden support is done through a PVC gardening pipe support. The antenna is held straight through a heavy-duty tripod for camping TV-sat antennas, available in e-bay. It is bulky but light and very solid, and considerably cheaper than a solid photography/hi-fi tripod. The wooden support is attached to the tripod using regular metalic mounting brackets.
+The vertical support of the anntena is a wooden stick, here it is important to emphasize that no metallic supports shall be used to hold the antenna, as they will affect its efficiency. The attachment of the loop to the wooden support is done through a PVC gardening pipe support. The antenna is held straight through a heavy-duty tripod for camping TV-sat antennas, available on e-bay. It is bulky but light and very solid, and considerably cheaper than a photography/hi-fi tripod. The wooden support is attached to the tripod using regular metalic mounting brackets.
 
 In order to protect the tunning unit, an regular electricity box has been used. The loop terminals are inserted into the box and protected with cable glands. The same strategy has been used for the control cable, with a ruggedized RJ-45 connector.
 
@@ -80,7 +79,7 @@ The stepper motor holding bracket has to be selected so it is compatible with th
 ## Electronic Control Unit (ECU)
 
 The ECU is responsible for: 
-* Driving the stepper motor at two diffrent speeds and in clockwise and counter-clockwise directions.
+* Driving the stepper motor at two diffrent speeds, in clockwise and counter-clockwise directions.
 * Reading the capacitor position and displaying it on the LCD screen.
 * Stopping the movement of the stepper if approaching the mechanical limits.
 
@@ -89,13 +88,13 @@ The ECU is responsible for:
 <figcaption><b>Picture X: Electronic Control Unit</b></figcaption>
 </div>
 
-The two core components in the ECU are an **arduino pro micro** to run the control software and an **Allegro A4988** to facilitate stepper motor control. The rest of the hardware components are common passive, push buttons and connectors. The PCB is a two layer board that I designed using easyEDA (free on-line CAD tool) and produced through jlcPCB. PCB designs are available in the project repository under [pcb/initialPrototype](https://github.com/jaesparza/Loop-controller/tree/master/pcb/initialPrototype).
+The two core components in the ECU are an **arduino pro micro** to run the control software and an **Allegro A4988** to drive the stepper motor. The rest of the hardware components are common passive, push buttons and connectors. The PCB is a two layer board that I designed using easyEDA (free on-line CAD tool) and produced through jlcPCB. PCB designs are available in the project repository under [pcb/initialPrototype](https://github.com/jaesparza/Loop-controller/tree/master/pcb/initialPrototype).
 
 ## Driving the stepper motor
 Diring the stepper motor for optimal operation is a key aspect for succesful antenna usage. Speed has to be carefully determined so it is possible to change the bands fast while making it also possible to fine tune the antenna to achieve low SWR. The speed can be determined experimentally by playing with different pulse frequencies and duty cycles. Depending on target speed and selected stepper, a progressive acceleration will be needed. A function generator with TTL output can greatly help on determining the optimal driving frequency without constant compilation/deployment/testing cycles.
 
 In addition to speed, carefully adjusting the following aspects wil greatly improve performance:
-* **Microstepping** will allow for smooth stepper roation. The stepper driver used in this project is configured to a 16 step reduction. This is a fixed configuration via dip switches, but it could be programmable if desired via GPIOs.
+* **Microstepping** will allow for smooth stepper roation. The stepper driver used in this project is configured to a 16 step reduction. This is a fixed configuration via DIP switches, but it could be programmable if desired via GPIOs.
 * **Disable driver when not rotating** is a MUST. It will avoid noise in the radio receiver and it will decrease current draw considerably. Therefore, the enable line in the driver has to be toggled accordingly when the motor is not in use.
 * **Tune maximum current** so microstepping works correctly and the motor does not exert more torque than necessary. It will decrease the heat disipated in the stepper motor driver and also decrease de vibrations in the mechanical assembly.
 
@@ -110,7 +109,7 @@ The stepper motor is operated at 12V and the rest of the electronics at 5V. To s
 
 In order to use the control board with the ADC reading the absolute position sensor in the tuning unit box, a specific jumper configuration is required. Additional details can be found in [[hardware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/pcb/initialPrototype).
 
-**IMPORTANT:** The motor driver shall be disabled through reseat and power-up, else unwanted steps will be triggered in the stepper motor. This is implemented through an pull-up resistor in the enable line of the driver (EN, active-low).
+**IMPORTANT:** The motor driver shall be disabled through reset and power-up, else unwanted steps will be triggered in the stepper motor. This is implemented through an pull-up resistor in the enable line of the driver (EN, active-low).
 
 **IMPORTANT:** Apply a low-pass filter to the ADC line to avoid false end-stops. The ADC reads the multiturn-potentiometer responsible for absolute positioning. This potentiometer is connected through several meters of cable, running up to the tuning unit and together with the motor control signals. This setup is prone to pick-up electrical noise in the ADC lines, in this case the signal present is rich in harmonics between 1 to 8 kHz and modulated at 50 Hz. This is resulting in spurious triggers of the sofware end-stop protections. In order to remedy it, a hardware-based low-pass filter has been added at the ADC input. The filter is calculated to have a cut-off frequency of **XX kHz**.
 
@@ -128,20 +127,28 @@ In order to use the control board with the ADC reading the absolute position sen
 
 
 ## Software considerations
-The stepper motor is driven from a controller that can be configured to handle regular broadcasting capacitors, butterfly capacitors or vacuum capacitors. The main considerations from a software point of view are:
+The software controller can be configured to handle regular broadcasting capacitors, butterfly capacitors or vacuum capacitors. The main considerations from a software point of view are:
 * Number of rotations needed to cover from minimum to maximum capacitance.
 * Strategy to achieve absolution positioning.
 
-In this case, the strategy to achive absolute positioning is direct reading of a potentiometer, which by construction keeps its value after power-off. Additionaly, by mechanical design, each position positiong in the tuning range has a unique value. This means that it is not needed from a software point of view to keep a count of steps sent to the driver, or a number of full rotations for positioning purposes and to store them in EEPROM through power-cycles. Although both options can be activated in the software through `#defines`, relying on a hardware positioning is more robust. A complete description of the configuration options is available at [[firmware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/Software/tunerControllerGen1#how-to-configure-the-firmware).
+In this case, the strategy to achive absolute positioning is direct reading of a potentiometer, which by construction keeps its value after power-off. Additionaly, by mechanical design, each position in the tuning range has a unique value. This means that it is not needed from a software point of view to keep a count of steps sent to the driver, or a number of full rotations for positioning purposes and to store them in EEPROM through power-cycles. Although both options can be activated in the software controller, relying on a hardware positioning is more robust. A complete description of the configuration options is available at [[firmware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/Software/tunerControllerGen1#how-to-configure-the-firmware).
 
 * Go through the software and spot key aspects (rt constraints).
 * sofware design, UML overview.
 * Combining update of LCD screen with driving the stepper motor.
 
-```
+The software is structured around the following classes:
+* Controller: contains the entry point, instantiates and initializes the system in the `setup()` function and calls `mode->execute()`.
+* Mode: is the base class that allows access to the hardware drivers and contains the common definition of how the motor should be driven in the `operateMotor()` function.
+* Mode operate encoder: is the sepecialized version of Mode implementing how the system is operated.
+* Hardware access classes: encapsulate the access to the hardware peripherals. Implemented as [singletons](https://en.wikipedia.org/wiki/Singleton_pattern).
+
+For this antenna, the mode class that is used is Mode operate encoder, which implements the `execute()` function as follows:
+
+
+```C
 virtual void execute() {
   uint8_t moved = false;
-
   userInput->readInputs();
   display->update(getCount());
   
@@ -157,7 +164,47 @@ virtual void execute() {
   }
 }
 ```
-**IMPORTANT** Liquid cristal fast library.
+
+```C
+uint8_t operateMotor(uint8_t speed, uint8_t CW, uint8_t CCW) {
+  uint8_t motorMoved = false;
+  stepper->setSpeed(speed);
+
+  if (CW) {
+    stepper->enableMotor();
+    stepper->rotateCW();
+    motorMoved = true;
+  } else if (CCW) {
+    stepper->enableMotor();
+    stepper->rotateCCW();
+    motorMoved = true;
+  } else {
+    stepper->disableMotor();
+    motorMoved = false;
+  }
+
+  if (speed == SLOW) {
+    delay(OPERATION_DELAY_SLOW);
+  } else {
+    delay(OPERATION_DELAY_FAST);
+  }
+  
+  return motorMoved;
+}
+```
+
+```C
+bool checkLimits() {
+  bool isWithinLimits = false;
+  if (userInput->isRotateCW()) {
+    isWithinLimits = ((getCount() > limitMin) ? true : false);
+  } else if (userInput->isRotateCCW()) {
+      isWithinLimits = ((getCount() < limitMax) ? true : false);
+  }
+  return isWithinLimits;
+}
+```
+
 
 <div style="text-align:center">
 <img src="/img/.jpg" />
@@ -170,9 +217,7 @@ virtual void execute() {
 </div>
 
 ## Build vs. buy
-
-* A commercial loop antenna from MFJ, covering from 10 to 30 MHz costs around 600 Euros including shipping from a European dealer (MFJ 1786X). This model comes with a tunner box and a ruggedized finish and is ready to mount outdoors.
-* Looking at the costs of the material I used in this prototype, I have spent roughly 200 Euros for the antenna and tunning unit and around 40 Euros in prototyping. I have lost track of the time I have spent building and experimenting (one could claim that time also has a cost).
+A commercial loop antenna (MFJ 1786X), covering from 10 to 30 MHz costs around 600 Euros including shipping from a European dealer. This model comes with a tunner box and a ruggedized finish and is ready to mount outdoors. Looking at the costs of the material I used in this prototype, I have spent roughly 200 Euros for the antenna and tunning unit and around 40 Euros in prototyping. I have lost track of the time I have spent building and experimenting (one could claim that time also has a cost).
 
 If I factor in all the spare material that I have acquiered previously to experiment with other loop configurations and different kinds of capacitors, costs will probably be on pair with a new ready made antenna. So, from a cost-savings perspective, the savings have been non-existent. However, I have learnt on the way and enjoyed the process, and that is what matters!
 
