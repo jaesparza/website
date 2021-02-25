@@ -133,22 +133,20 @@ The software controller can be configured to handle regular broadcasting capacit
 
 In this case, the strategy to achive absolute positioning is direct reading of a potentiometer, which by construction keeps its value after power-off. Additionaly, by mechanical design, each position in the tuning range has a unique value. This means that it is not needed from a software point of view to keep a count of steps sent to the driver, or a number of full rotations for positioning purposes and to store them in EEPROM through power-cycles. Although both options can be activated in the software controller, relying on a hardware positioning is more robust. A complete description of the configuration options is available at [[firmware configuration]](https://github.com/jaesparza/Loop-controller/tree/master/Software/tunerControllerGen1#how-to-configure-the-firmware).
 
-* Go through the software and spot key aspects (rt constraints).
-* sofware design, UML overview.
-* Combining update of LCD screen with driving the stepper motor.
-
 The software is structured around the following classes:
 * Controller: contains the entry point, instantiates and initializes the system in the `setup()` function and calls `mode->execute()`.
 * Mode: is the base class that allows access to the hardware drivers and contains the common definition of how the motor should be driven in the `operateMotor()` function.
 * Mode operate encoder: is the sepecialized version of Mode implementing how the system is operated.
 * Hardware access classes: encapsulate the access to the hardware peripherals. Implemented as [singletons](https://en.wikipedia.org/wiki/Singleton_pattern).
 
-For this antenna, the mode class that is used is Mode operate encoder, which implements the `execute()` function as follows:
 
+![Software structure](https://raw.githubusercontent.com/jaesparza/Loop-controller/master/doc/images/controllerStructure.PNG)
+
+In this controller the mode class that is used is an instance of ` Mode operate encoder`, which implements the `execute()` function as presented in the listing below. This function will periodically read user inputs, read the position of the encoder and check if the movement can be allowed and operate the motor accordingly. In case the motor has been moved the refreshcount in the display class will be incremented. This internal count will trigger a LCD display update when a certain limit has been reached. The purpose with this is to affect the motor rotation as little as possible. In case the motor is not moving, the display will be updated immediately.
 
 ```C
 virtual void execute() {
-  uint8_t moved = false;
+  moved = false;
   userInput->readInputs();
   display->update(getCount());
   
@@ -164,6 +162,7 @@ virtual void execute() {
   }
 }
 ```
+The motor is moved through the `operateMotor` function, which handles interaction with the stepper driver. In case the motor is going to be moving in clockwise (CW) or counter-clockwise (CCW) directions, the driver is enabled and the rotation direction set accordingly. If the motor is not going to rotate the driver remains disabled to reduce current draw. Finally, a delay is inserted depending on the speed, so the separation between pulses triggering steps vary accordingly.
 
 ```C
 uint8_t operateMotor(uint8_t speed, uint8_t CW, uint8_t CCW) {
@@ -192,6 +191,8 @@ uint8_t operateMotor(uint8_t speed, uint8_t CW, uint8_t CCW) {
   return motorMoved;
 }
 ```
+
+The execution of `operateMotor` is conditional to the result of `checkLimits`. The movement is only allowed if the physical limit imposed by the encoder has not been reached. In case it has the movement would only be permitted in the unconstrained direction, where the axis can rotate.
 
 ```C
 bool checkLimits() {
