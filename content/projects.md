@@ -4,16 +4,17 @@ weight: 1
 bookToc: false
 ---
 
-Here you can find some of my past projects. Only hobby ones for now.
+Radio:
+* A low-power radio beacon for CW, QRSS and WSPR digital modulation. [link]({{< relref "../beacon.md" >}})
+* A magnetic loop antenna covering 14MHz to 28MHz. [link]({{< relref "../loop1.md" >}})
+* A low-power coax-based magnetic loop antenna covering 7MHz to 28MHz. [link]({{< relref "../coaxMagLoop.md">}})
+* Airband monitoring station. [link]({{< relref "../aviationmonitoringstation.md" >}})
 
-* A low-power radio beacon for CW, QRSS and WSPR digital modulation [link]({{< relref "../beacon.md" >}})
-* A magnetic loop antenna covering 14MHz to 28MHz.
-* A low-power coax-based magnetic loop antenna covering 7MHz to 28MHz.
+Robotics:
 
 <br>
 
-* Writing this website - a short story of ditching Wordpress for Hugo.
-
+Academic projects:
 
 
 ```

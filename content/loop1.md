@@ -6,23 +6,23 @@ bookHidden: false
 katex: false
 ---
 
-# Magnetic loop antenna 14-28 MHz
+# Magnetic Loop Antenna 14-28 MHz
 
-In this page I describe the most relevant aspects in the construction of one of my loops to operate in the 20 to 10m bands (14 MHz to 28 MHz). I cover antenna mechanical construction, hardware, software and mechanical perspectives. This is a compilation of design notes that I have developed over this project and that I would have liked to have in the beginning. It is the hope that this will encourage future builders and facilitate the construction of quality loops.
+In this page I describe the most relevant aspects in the construction of a Magnetic Loop Antenna (MLA) designed to operate from 14 MHz to 28 MHz (20m to 10m bands). I cover antenna mechanical construction, hardware and software perspectives. This is basically a compilation of design notes that I have created over this project and that I would have liked to have when I started it. It is the hope that this will encourage future builders and facilitate the construction of quality loops.
 
-## Specifications
-* Power rating: 100 Watts (tested)
+## Antenna specifications
+* Maximum power rating: 100 Watts (tested)
 * Bandwidth: TX 14 to 28 MHz
 * Loop diameter: 88 cm
-* Tuning through vacuum capacitor with electronic remote control
-* Rotation end-stop protection through absolute positioning
+* Tuning through vacuum capacitor with electronic remote control.
+* Rotation end-stop protection through absolute positioning.
 
 <div style="text-align:center">
 <img src="/img/" />
 <figcaption><b>Picture 1: Loop antenna in tripod</b></figcaption>
 </div>
 
-## Antenna construction
+## Loop construction
 
 The outer loop of the antenna is made of cellflex/heliax cable (section 7/8"). The diameter of the outer loop is 88 cm (length 2.76 m). This kind of cable is used as transmission line in high-end RF installations (e.g. mobile telephony stations). The purity of the copper is much higher if compared to the material used in plumbing copper pipes. Also, construction is considerably simplified as no soldering of loop sections is required (as needed when assembling octogonal-shaped antennas).
 
@@ -66,7 +66,7 @@ The components in the tuning unit are mounted on a plexiglass support. Plexiglas
 
 The stepper motor is a key component that has to be selected carefully for this application. Factors that are especially important are step size, power rating and reduction. In order to operate the vacuum capacitor without any external reduction, I have chosen a NEMA 17, 200 steps/rotation with planetary reduction gear of 5:1. This gives me enough torque to move the capacitor as well as a smoother rotation.
 
-**PRO tip**: I also tried a NEMA17 400 steps stepper motor, which can successfully rotate the capacitor. However, this comes at the cost of much higher current draw (up to 700 mA) to achieve operation towards the end of the rotation. I recommend using a stepper motor with reduction gear to stay within a comfortable margin of 150 mA of current at 12V in the motor windings. 
+**Design alternative**: I also tried a NEMA17 400 steps stepper motor without planetary reduction, which can successfully rotate the capacitor. However, this comes at the cost of much higher current draw (up to 700 mA) to achieve operation towards the end of the rotation. I recommend using a stepper motor with reduction gear, that can deliver the torque required and stay within a comfortable margin of 150 mA of current at 12V in the motor windings. 
 
 The stepper motor holding bracket has to be selected so it is compatible with the stepper with planetary reduction box, meaning that it shall be possible to use holding screws within 14mm from the center shaft. See for comparison regular holding bracket and holding bracket compatible with the gearbox. Brackets compatible with steppers with gearbox are a bit less common but still possible to find at good prices from Chinese resellers.
 
@@ -141,6 +141,11 @@ The software is structured around the following classes:
 
 
 ![Software structure](https://raw.githubusercontent.com/jaesparza/Loop-controller/master/doc/images/controllerStructure.PNG)
+
+<div style="text-align:center">
+
+<figcaption><b>Overview of the </b></figcaption>
+</div>
 
 In this controller the mode class that is used is an instance of ` Mode operate encoder`, which implements the `execute()` function as presented in the listing below. This function will periodically read user inputs, read the position of the encoder and check if the movement can be allowed and operate the motor accordingly. In case the motor has been moved the refreshcount in the display class will be incremented. This internal count will trigger a LCD display update when a certain limit has been reached. The purpose with this is to affect the motor rotation as little as possible. In case the motor is not moving, the display will be updated immediately.
 
