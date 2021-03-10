@@ -74,15 +74,12 @@ void FSK_SENDER::send(uint8_t symbol) {
 ```
 
 #### WSPR encoding
-/*
- * Example message from the WSPR user manual
- *
- * The standard format according to the protocol spec. is: "callsign + 4-digit
- * locator + dBm"
- * Channel symbols for the message "K1ABC FN42 37"
- */
+WSPR is a digital modulation using Frequency Shift Keying with four symbols. The predefined separation between the tones is 1.4648 Hz, ```WSPR_TONE_SEPARATION``` in the code.
+
+The beacon controller has a predefined WSPR message compiled in with the message that will be transmitted. The message contains: "callsign + 4-digit Maidenhead locator + power in dBm"
+
 ```C
-uint8_t EXAMPLE_WSPR_DATA[] = {
+uint8_t EXAMPLE_WSPR_DATA[] = { // Channel symbols for the message "K1ABC FN42 37"
     3, 3, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 1, 3, 1, 2, 2, 2, 1, 0, 0, 3, 2, 3,
     1, 3, 3, 2, 2, 0, 2, 0, 0, 0, 3, 2, 0, 1, 2, 3, 2, 2, 0, 0, 2, 2, 3, 2,
     1, 1, 0, 2, 3, 3, 2, 1, 0, 2, 2, 1, 3, 2, 1, 2, 2, 2, 0, 3, 3, 0, 3, 0,
