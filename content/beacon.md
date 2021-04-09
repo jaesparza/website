@@ -17,41 +17,53 @@ bookToc: false
 * Programmable in Cpp with custom messages and TX duty cycle.
 * Internal STM32 RTC synchronized to GPS network time for WSPR operation.
 
-
-## Overview
-
 ![Assembled Beacon](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/assembled.jpg)
 
+## Overview
 ### Hardware 
 
-The main hardware blocks are the following:
-* **STM32 "Blue pill"**: is the controller board mounting a STM32 microcontroller with the minimal circuitry for it to function. It also carries the crystal needed by the internal RTC.
-* **GPS**: is an external GPS module that can provide NMEA strings through a serial interface to the controller. It provides time and position information.
-* **AD9850 DDS oscillator**: generates the FSK or CW modulated signal in the required frequency as controlled by the STM32.
-* **Power amplifier**: provides a gain of XXdB to the oscillator output signal.
-* **Low pass filter**: fiters out undesired harmonics from the power amplifier output.
+The main hardware blocks are commercial-off-the-shelve units, readily available in most electronics suppliers. The only excception is the power amplifier, which is described in greater detail later on.
+* **STM32 "Blue pill"**: is the controller board mounting a STM32 microcontroller with the minimal circuitry for it to function. It also carries the crystal needed by the internal RTC. Powered at 5 Volts.
+* **GPS**: is an external GPS module that can provide NMEA strings through a serial interface to the STM32 controller. It provides time and position information. Powered through the +5V Voltage domain in the blue pill.
+* **AD9850 DDS oscillator**: generates the FSK or CW modulated signal in the required frequency as controlled by the STM32. Powered through the +5V Voltage domain in the blue pill.
+* **Power amplifier**: provides a gain of 5dB to the oscillator output signal. It is powered at 12 Volts from an external supply and presents a 50 ohms output impedance.
+* **Output filter**: Low pass filters that eliminates undesired harmonics from the power amplifier output. Presents a 50 ohms input and output impedance.
 
-During programming and developmet a ST-link dongle and a Serial to USB TTL cable are also needed.
+#### Interfaces
 
-```
-* Schematics
-    -> FIGURE:
-* AD9850 output (5 volts)
-* BS170 amplifier
-    -> FIGURE: Measurements at 10/14 MHz
-* Filter
-    -> FIGURE: Harmonics before/after filtering
-```
+The interfaces used between the STM32 controller and the peripherals are listed below. An overview of the STM 32 IO capabitilies can be found in this pinout diagram ([link](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/stm32PinDetails.png)).
+* SPI master ```2```, 5 Volts tolerant, is used to load the target frequency in the DDS.
+* Serial TTL ```Serial1```, 5 Volts tolerant, is used to interface with the development PC, connected through a USB/Serial TTL adapter.
+* Serial TTL ```Serial3```, 5 Volts tolerant, is used to interface with the GPS.
+* ST-Link dongle for programming and development connected through USB to the development PC.
+
+#### Power amplifier and output filter stages
+
+The final stage is composed of a power amplifier and a filter to elimiante output harmnonics an overview is shown in the schematic below.
+
+The amplifier is build around Q1, a single BS170, a general purpose N-Channel FET ([link](https://www.onsemi.com/pdf/datasheet/mmbf170-d.pdf) to datasheet). U1 regulates the input to the bias network to 5 Volts, which is to adjust the bias through RV1. C1 filters noise in the supply line. Capacitors C2 and C3 are used to block the DC levels from input and output signals. L1 is a FT37-43 toroid with 25 turns of 0.40mm diamater copper wire. The inductor prevents the amplified HF signal to affect the supply line Vcc and it is critical for the correct operation of the amplifier.
+
+The bias point is adjusted through RV1 to produce 200 mW output (23 dBm) when driven from a 18 dBm input signal and terminated at 50 ohms.
+
+![Amplifier](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/amplifierSchematic.PNG)
+
+The power amplifier is connected to the ```VOUTP``` output from the AD9850 module. This is an unfiltered, square, 5 Volts output that can drive the 50 ohms impedance presented by the low pass filter. It is important to use this specific output and not the ```IOUT``` output from the breakout board, since the amplitude of the latter is approximately 200 mV and it is fitered and unnecesarily terminated at 200 ohms (this is probably a missinterpretation of the AD9850 datasheet by the carrier board producer).
+
+When measuring the output of the amplifier, it is important to terminate it properly at 50 ohms to achieve correct readings. In higher power amplifiers it is also a must, to avoid damages due to high SWR (not an issue here, since the maximum power is 200 mW).
+
+The filter stage is a Low Pass filter kit from [QRPlabs](https://qrp-labs.com/images/lpfkit/instructions2.pdf). It is a simple 7-element passive filter design available for different bands. Alternatives to this design can be found in most RF handbooks (with pre-calculated value tables).
+
 ### Software
 
 The control software is written in Cpp and uses the STM32duino abstraction layer. The software is structured in the following classes:
 
+* **Beacon**: is the entry point implementing the initial setup and the periodic loop behaviour.
 * **QRSS**: is a base class contining the common operations for QRSS operation: message transmission, morse encoding and also access to the oscillator.
 * **FSK Sender** and **CW Sender**: are subclasses of QRSS that implement Frequency Shift Keying CW and traditional morse code respectively.
-* **WSPR**: implements the WSPR encoding using the four-level FSK.
+* **WSPR**: implements the WSPR encoding using its four-level FSK encoding.
 * **TimeSync**: maintains a local notion of time synchronized to the GPS network. The STM32 internal RTC is synchronized to the time values provided by the GPS through NMEA strings. Triggers the transmission when scheduled through RTC alarm attached interrupt.
 
-The controls software uses the following libraries:
+The control software uses the following libraries:
 * **AD8850**: controls the DDS oscillator. Based on the library from [R. Tilard](https://github.com/RobTillaart/AD985X), modified to: use a configurable SPI interface and added a calibration method.
 * **TinyGPSPlus**: interfaces the GPS and parses the NMEA strings. The library contains methods for positioning and navigation however, only time functionality is used. Library from [Mikal Hart](https://github.com/mikalhart/TinyGPSPlus).
 
@@ -74,7 +86,7 @@ void FSK_SENDER::send(uint8_t symbol) {
 ```
 
 #### WSPR encoding
-WSPR is a digital mode using a 4-symbol Frequency Shift Keying modulation. The predefined separation between the tones representing the symbols is 1.4648 Hz. A WSPR message is composed of 162 symbols and it takes 110.6 s to transmit. The baudrate is 1.4648 bits/s. The standard WSPR message contains: "callsign + 4-digit Maidenhead locator + power in dBm". Additional information on the protocol can be found in Appendix B of the [WSPR user manual](https://www.physics.princeton.edu/pulsar/k1jt/WSPR_2.0_User.pdf).
+WSPR is a digital mode using a 4-symbol Frequency Shift Keying modulation. The predefined separation between the tones representing the symbols is 1.4648 Hz. A WSPR message is composed of 162 symbols and it takes 110.6 s to transmit. The baudrate is 1.4648 bits/s. The standard WSPR message contains: "callsign + 4-digit [Maidenhead locator](https://en.wikipedia.org/wiki/Maidenhead_Locator_System) + power in dBm". Additional information on the protocol can be found in Appendix B of the [WSPR user manual](https://www.physics.princeton.edu/pulsar/k1jt/WSPR_2.0_User.pdf).
 
 The beacon stores the message to be transmitted in a ```uint8_t``` array. This message is hardcoded in the beacon sourcecode. See below and excerpt of the test message provided in the WSPR user manual, containing the sequence of tones that have to be generated to send the messate "K1ABC FN42 37".
 
@@ -114,12 +126,12 @@ Software and notes on beacon configuration are availabe in the project [GitHub r
 ### Setup
 Before putting the beacon on the air, the following setup is needed:
 1. Determine the band in which the beacon is going to transmitt and plug the appropriate low pass filter for that band.
-2. Generate the WSPR message that will be sent by the beacon by following the instructions [link](https://github.com/jaesparza/radio-beacon/tree/main/sw/beacon#configure-your-won-wspr-frame). An example of a WSPR message can be seen in the code listing below. Replace the contents of the `uint8_t MY_WSPR_DATA` array with the custom message.
+2. Generate the WSPR message that will be sent by the beacon by following the instructions [link](https://github.com/jaesparza/radio-beacon/tree/main/sw/beacon#configure-your-won-wspr-frame). Replace the contents of the `uint8_t MY_WSPR_DATA` array with your own message.
 3. Set the desired TX duty cycle in minutes.
 4. Recompile and flash.
 
 ### Dry run
-A QRSS viewer software can be used to test the beacon operation before connecting it to an antenna. An option is [ARGO QRSS viewer](https://digilander.libero.it/i2phd/argo/). This test requires a HF receiver and a digital modes interface, so the audio signal can be fed into the PC's soundcard. An example of a correct full WSPR frame that can be decoded is shown below. The critical aspect here is that the separation between the tones that are transmitted looks correct (approximately, sicne this viewer does not have a high resolution).
+A QRSS viewer software can be used to test the beacon operation before connecting it to an antenna. An option is [ARGO QRSS viewer](https://digilander.libero.it/i2phd/argo/). This test requires a HF receiver and a digital modes interface, so the audio signal can be fed into the PC's soundcard. An example of a correct full WSPR frame that can be decoded is shown below. The critical aspect here is that the separation between the tones that are transmitted looks correct (subjectively judged, since this viewer does not have a high resolution).
 
 ![Test transmission of a WSPR frame](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/WSPR.PNG)
 
@@ -139,9 +151,3 @@ Many people are skeptical about the distances that can be accomplished with just
 
 
 ![Decoding the test transmission](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/contacts1.PNG)
-
-## Improvements
-
-
-## Build vs. buy
-
