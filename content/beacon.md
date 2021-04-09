@@ -8,9 +8,6 @@ bookToc: false
 
 *A description of my multimode radio beacon for HF data transmissions. This beacon is simple to build with readily available and cheap components. It is a TX-only device and does not require other external radio equipment. Its applications are real-time HF propagation monitoring and antenna performance evaluation.*
 
-
-<img src="https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/assembled.jpg" alt="drawing" width="800"/>
-
 ## Specifications
 * TX in any amateur band between 160m to 10m (1.5 to 28 MHz).
 * Filtered RF output of up to 200 mW.
