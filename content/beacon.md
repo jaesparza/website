@@ -60,11 +60,28 @@ The control software is written in Cpp and uses the STM32duino abstraction layer
 * **WSPR**: implements the WSPR encoding using its four-level FSK encoding.
 * **TimeSync**: maintains a local notion of time synchronized to the GPS network. The STM32 internal RTC is synchronized to the time values provided by the GPS through NMEA strings. Triggers the transmission when scheduled through RTC alarm attached interrupt.
 
-The control software uses the following libraries:
+The control software uses the following third-party open-source libraries:
 * **AD8850**: controls the DDS oscillator. Based on the library from [R. Tilard](https://github.com/RobTillaart/AD985X), modified to: use a configurable SPI interface and added a calibration method.
 * **TinyGPSPlus**: interfaces the GPS and parses the NMEA strings. The library contains methods for positioning and navigation however, only time functionality is used. Library from [Mikal Hart](https://github.com/mikalhart/TinyGPSPlus).
 
-#### FSK-CW and CW encoding
+
+#### Entry point and main loop
+{{< hint warning >}}
+**Pending**
+* Introduce a code snippet for the beacon entry point.
+* Describe the beaacon entry point.
+{{< /hint >}}
+
+#### QRSS and CW encoding
+
+The plain text to morse code symbol translation is implemented by look-up function that returns an `uint8_t` representing the sequence of DOTs and DASHes by using 0s and 1s respectively. When transmitting the letter the word is shifted until all the symbols have been sent by using the `dot()`, and `dash()` function. For plain QRSS and CW these functions key directly the oscillator with the specified delay. The look-up function and the symbol encoding using `uint8_t` is inspired by the QRSS sketch from Hans Summers in [Ham radio for Arduino and Picaxe](http://www.arrl.org/ham-radio-for-arduino-and-picaxe).
+
+#### QRSS-FSK encoding
+
+{{< hint warning >}}
+**Pending**
+* Describe the FSK-CW encoding snippet
+{{< /hint >}}
 
 ```C
 void FSK_SENDER::send(uint8_t symbol) {
