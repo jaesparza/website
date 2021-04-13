@@ -8,6 +8,8 @@ bookToc: false
 
 *A description of my multimode radio beacon for HF data transmissions. This beacon is simple to build with readily available and cheap components. It is a TX-only device and does not require other external radio equipment. Its applications are real-time HF propagation monitoring and antenna performance evaluation.*
 
+**The project material is available in its [github repository](https://github.com/jaesparza/radio-beacon)!** There you can find the source code, hardware schematics and additional notes on hardware and software configuration.
+
 ## Specifications
 * TX in any amateur band between 160m to 10m (1.5 to 28 MHz).
 * Filtered RF output of up to 200 mW.
@@ -55,7 +57,7 @@ The filter stage is a Low Pass filter kit from [QRPlabs](https://qrp-labs.com/im
 The control software is written in Cpp and uses the STM32duino abstraction layer. The software is structured in the following classes:
 
 * **Beacon**: is the entry point implementing the initial setup and the periodic loop behaviour.
-* **QRSS**: is a base class contining the common operations for QRSS operation: message transmission, morse encoding and also access to the oscillator.
+* **QRSS**: is a base class contining the common operations for QRSS operation: message transmission, morse encoding and access to the oscillator wrapper.
 * **FSK Sender** and **CW Sender**: are subclasses of QRSS that implement Frequency Shift Keying CW and traditional morse code respectively.
 * **WSPR**: implements the WSPR encoding using its four-level FSK encoding.
 * **TimeSync**: maintains a local notion of time synchronized to the GPS network. The STM32 internal RTC is synchronized to the time values provided by the GPS through NMEA strings. Triggers the transmission when scheduled through RTC alarm attached interrupt.
@@ -66,37 +68,71 @@ The control software uses the following third-party open-source libraries:
 
 
 #### Entry point and main loop
-{{< hint warning >}}
-**Pending**
-* Introduce a code snippet for the beacon entry point.
-* Describe the beaacon entry point.
-{{< /hint >}}
+The entry point to the controller software is in the beacon.ino file and following the arduino sketch convention it is structured in two functions: `setup` and `loop`. The function `setup` initializes the system by:
+1. Setting up the hardware.
+2. Constructing the classes that will be used during execution.
+3. Syncrhonizing the STM32 microcontroller RTC to the GPS network time.
+4. Scheduling the first transmission, to take place in the next slot available.
+
+The scheduling of the first transmission is done through the function `scheduleNextWSPRTX`, which takes as parameters the callback function to be invoked when the time `SCHEDULE_FOR_NEXT_SLOT` has elapsed: the function `beaconTX()`.
+
+```C
+void setup() {
+    // ...
+    gps = new TinyGPSPlus();
+    rt = new RTClock(RTCSEL_LSE);
+
+    timeKeeper = new TimeSync(rt, gps);
+    timeKeeper->syncRTC();
+    timeKeeper->scheduleNextWSPRTX(beaconTX, SCHEDULE_FOR_NEXT_SLOT);
+    // ...
+}
+
+void beaconTX() { // Invoked from an ISR context
+    TX_triggered = true;
+}
+```
+The function `loop` waits for a TX_trigger event to be signaled in order to start the wspr message transmission. Once that transmission is finished the next transmission is scheduled to take place at the regular `SCHEDULE_TX_PERIODIC` time has elapsed.
+
+```C
+void loop() {
+    if (TX_triggered) {
+        BEACON_SERIAL.println("Beacon sending WSPR frame");
+        wsprSender->sendWSPRmessage();
+        timeKeeper->scheduleNextWSPRTX(beaconTX, SCHEDULE_TX_PERIODIC);
+        TX_triggered = false;
+    }
+}
+```
 
 #### QRSS and CW encoding
 
-The plain text to morse code symbol translation is implemented by look-up function that returns an `uint8_t` representing the sequence of DOTs and DASHes by using 0s and 1s respectively. When transmitting the letter the word is shifted until all the symbols have been sent by using the `dot()`, and `dash()` function. For plain QRSS and CW these functions key directly the oscillator with the specified delay. The look-up function and the symbol encoding using `uint8_t` is inspired by the QRSS sketch from Hans Summers in [Ham radio for Arduino and Picaxe](http://www.arrl.org/ham-radio-for-arduino-and-picaxe).
+The plain text to morse code symbol translation is implemented by a look-up function, which returns an `uint8_t` representing the sequence of DOTs and DASHes by using 0s and 1s respectively. When transmitting the letter the `uint8_t` is shifted until all the symbols have been sent by using the `dot()`, and `dash()` function. For plain QRSS and CW these functions key directly the oscillator during a certain time. The look-up function and the symbol encoding using `uint8_t` is inspired by the QRSS sketch from Hans Summers in [Ham radio for Arduino and Picaxe](http://www.arrl.org/ham-radio-for-arduino-and-picaxe). The function below shows how a dash is sent, the oscillator is set at a defined frequency for a period of time defined by `DOT_CW * DASH_WEIGHT`. Finally, an intersymbol delay is inserted.
+
+```C
+void CW_SENDER::dash() {
+    _oscillator->setFrequency(_baseFrequency);
+    delay(DOT_CW * DASH_WEIGHT);
+    _oscillator->setFrequency(0);
+    delay(CW_DELAY); // pause after symbol set to one dot duration
+}
+```
 
 #### QRSS-FSK encoding
 
-{{< hint warning >}}
-**Pending**
-* Describe the FSK-CW encoding snippet
-{{< /hint >}}
+QRSS-FSK is a variation of "time-based" QRSS, where two signals at two different frequencies are used to represent keying or abscence of it. This is exemplified below, where a transmission of the letters C (dash - dot - dash - dot) and Q (dash - dash - dot - dash) can be seen. This is accomplished by using a base frequency at 590 Hz to represent no keying and a shift of 10 Hz on top to represent keying. 
+
+![FSKCW example](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/cqFSKCW.PNG)
+
+The message transmission logic and text to morse code translation is reused by subclassing the class QRSS. The only extension needed to enable QRSS-FSK is to implement the functions `dash()` and `dot()` using the frequency shift. The code snippet below shows how this is conducted for the `dash()` function.
 
 ```C
-void FSK_SENDER::send(uint8_t symbol) {
+void FSK_SENDER::dash() {
     _oscillator->setFrequency(_baseFrequency + FSK_HIGH);
-
-    if (symbol == DOT) {
-        delay(QRSS_DOT);
-    }
-    else { // symbol == DASH
-        delay(QRSS_DOT * QRSS_WEIGHT);
-    }
+    delay(QRSS_DOT * QRSS_WEIGHT);
     _oscillator->setFrequency(_baseFrequency);
     delay(QRSS_DELAY);
 }
-
 ```
 
 #### WSPR encoding
