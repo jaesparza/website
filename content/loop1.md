@@ -135,9 +135,9 @@ In this case, the strategy to achive absolute positioning is direct reading of a
 The software is structured around the following classes:
 * Controller: contains the entry point, instantiates and initializes the system in the `setup()` function and calls `mode->execute()`.
 * Mode: is the base class that allows access to the hardware drivers and contains the common definition of how the motor should be driven in the `operateMotor()` function.
-* Mode operate encoder: is the sepecialized version of Mode implementing how the system is operated.
+* Mode operate encoder: is the sepecialized version of ``Mode`` implementing system operation using rotation limits based on encoder reads.
+* Mode operate: displayed for completenes but not used. This is a specialized version of ``Mode`` relying counting the number of pulses sent to the stepper to keep track of position.
 * Hardware access classes: encapsulate the access to the hardware peripherals. Implemented as [singletons](https://en.wikipedia.org/wiki/Singleton_pattern).
-
 
 ![Software structure](https://raw.githubusercontent.com/jaesparza/Loop-controller/master/doc/images/controllerStructure.PNG)
 
@@ -146,7 +146,7 @@ The software is structured around the following classes:
 <figcaption><b>Overview of the </b></figcaption>
 </div>
 
-In this controller the mode class that is used is an instance of ` Mode operate encoder`, which implements the `execute()` function as presented in the listing below. This function will periodically read user inputs, read the position of the encoder and check if the movement can be allowed and operate the motor accordingly. In case the motor has been moved the refreshcount in the display class will be incremented. This internal count will trigger a LCD display update when a certain limit has been reached. The purpose with this is to affect the motor rotation as little as possible. In case the motor is not moving, the display will be updated immediately.
+In this controller the mode class that is used is an instance of ` Mode operate encoder`, which implements the `execute()` function as presented in the listing below. This function will periodically read user inputs, read the position of the encoder and check if the movement can be allowed and operate the motor accordingly. In case the motor has moved the refreshcount in the display class will be incremented. This internal count will trigger a LCD display update when a certain limit has been reached. The purpose with this is to affect the motor rotation as little as possible. In case the motor is not moving, the display will be updated immediately.
 
 ```C
 virtual void execute() {
@@ -196,7 +196,7 @@ uint8_t operateMotor(uint8_t speed, uint8_t CW, uint8_t CCW) {
 }
 ```
 
-The execution of `operateMotor` is conditional to the result of `checkLimits`. The movement is only allowed if the physical limit imposed by the encoder has not been reached. In case it has the movement would only be permitted in the unconstrained direction, where the axis can rotate.
+The execution of `operateMotor` is conditional to the result of `checkLimits`. The movement is only allowed if the physical limit detected by the encoder has not been reached. If it has, the movement would only be permitted in the unconstrained direction, where the axis can rotate.
 
 ```C
 bool checkLimits() {
@@ -209,8 +209,6 @@ bool checkLimits() {
   return isWithinLimits;
 }
 ```
-
-
 <div style="text-align:center">
 <img src="/img/.jpg" />
 <figcaption><b>Picture X: </b></figcaption>
@@ -226,18 +224,28 @@ A commercial loop antenna (MFJ 1786X), covering from 10 to 30 MHz costs around 6
 
 If I factor in all the spare material that I have acquiered previously to experiment with other loop configurations and different kinds of capacitors, costs will probably be on pair or above with buying a new, ready made, antenna. So, from a cost-savings perspective, the savings have been non-existent. However, I have learnt on the way and enjoyed the process, and that is what matters!
 
-## Bill of Materials and shops
-Where to buy
-* ebay and aliexpress 3d printer materials
-* regular tool shops
-* regular electronic shops
-* insert here links to the pdf of the datasheets https://github.com/jaesparza/Loop-controller/tree/master/doc
+## References
+* Component datasheets [link](https://github.com/jaesparza/Loop-controller/tree/master/doc)
+* "An overview of the underestimated magnetic loop antennas" [link](https://www.nonstopsystems.com/radio/pdf-ant/article-antenna-mag-loop-2.pdf)
+* A number of DIY Builds that I have gotteng insperation from: the archive -> radio -> magnetic loop articles [link]()
 
-Components
+## Bill of Materials
+* 100pF vacuum capacitor
+* Stepper motor with planetary reduction 5:1 - 17HS15-1684S-PG5
 * Cellflex/Heliax cable for the outer loop 3m (trim down as needed)
 * Copper wire/RG58 coax cable for the inner loop 60 cm (trim down as needed)
+* Aluminium shaft, flexible and rigid couplings
+* Belt model 94XL, 10 mm width
+* Small pulley diameter 15.66 mm, center hole 8 mm
+* Big pulley diameter 31.83 mm, center hole 6 mm
+* 10 kOhm multiturn potentiometer
+* Stepper motor holding bracket
 * Vertical wooden support
 * Two commercial antenna mounting brackets
+* Plexiglass sheet
 * PVC electricity box
-* 2 x Cable gland that fit a 7/8" cable.
+* 2 x Cable glands that fit a 7/8" cable.
+* Garden hose clamps
+* Assorted screws, nuts and bolts
+* RF connectors: PL-239 in this case - configure as needed.
 * Rj45 ruggedized connector
