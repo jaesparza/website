@@ -29,6 +29,25 @@ In this page I describe ...
 
 ## Software
 
+## Setting up armbian linux in Orange-Pi zero
+
+```
+Pinout TTL cable 
+
+GND | RX = Orange | TX = Yellow
+
+O-------------------O
+|	        	    |
+| GND | RX | TX     |
+|		            |
+|Ethernet           |
+|                   |
+|USB          Power |
+|                   |
+O-------------------O
+```
+
+
 ``` 
 tmux
 sudo apt-get install git cmake build-essential

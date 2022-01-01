@@ -18,9 +18,12 @@ In this page I describe the most relevant aspects in the construction of a Magne
 * Rotation end-stop protection through absolute positioning.
 
 <div style="text-align:center">
-<img src="/img/" />
+<img src="/images/tunningUnit.jpg" />
 <figcaption><b>Picture 1: Loop antenna in tripod</b></figcaption>
 </div>
+
+![LoopAntenna](/img/mounted.jpg)
+
 
 ## Loop construction
 
@@ -35,8 +38,12 @@ The tuning unit is enclosed in a plastic box used in electrical installations. T
 ## Tuning unit
 The tuning unit is one of the parts where I have spent most of the design and prototyping time. The tuning capacitor is a vacuum-type soviet 100 pF capacitor of maximum rating 5 kV. A capacitor with higher capacitance could be used, resulting in a higher bandwidth. However this comes at the price of higher costs, a bigger capacitor that requires higher torque to operate and the need for a more complex support. Also, the diameter of the outer loop would prevent it from achieving a high TX efficiency in lower bands.
 
+
+
+
+![Test](/img/tunningUnitResized.jpg)
 <div style="text-align:center">
-<img src="/img/tunningUnitResized.jpg" />
+<img src="../img/tunningUnitResized.jpg" />
 <figcaption><b>Picture 2: Detail of the tuning unit</b></figcaption>
 </div>
 
