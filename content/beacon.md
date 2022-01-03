@@ -197,7 +197,7 @@ The last step is to check that data framing and beacon time sync is correct so t
 {{< /hint >}}
 
 ### Transmission results
-Many people are skeptical about the distances that can be accomplished with just 200mW of RF power. I was myself, until I built and put this radio beacon on the air. The map below shows all the stations that reported receiving my station (OU2ECV in the north of Europe), when transmitting WSPR frames at 200mW with my [loop antenna]({{< relref "../loop1.md" >}}) __inside my apartment__ in the 20m band.
+Many people are skeptical about the distances that can be accomplished with just 200mW of RF power. I was myself, until I built and put this radio beacon on the air. The map below shows all the stations that reported receiving my station (OU2ECV in the north of Europe), when transmitting WSPR frames at 200mW with my [loop antenna]({{< relref "../magLoop.md" >}}) __inside my apartment__ in the 20m band.
 
 
 ![Decoding the test transmission](https://raw.githubusercontent.com/jaesparza/radio-beacon/main/doc/images/contacts1.PNG)
