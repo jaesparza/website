@@ -26,4 +26,4 @@ theme = "book"
   # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
   BookSection = '*'
 
-  BookMenuBundle ='/menu'
+  BookMenuBundle = '/menu'
