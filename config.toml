@@ -27,4 +27,3 @@ theme = "book"
   BookSection = '*'
 
   BookMenuBundle = '/menu'
-  
