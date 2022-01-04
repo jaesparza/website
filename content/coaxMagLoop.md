@@ -6,16 +6,31 @@ katex: true
 bookHidden: true
 ---
 
-# A lightweight coax-loop antenna
-A coaxial cable-based magnetic loop is an excellent starting point to being experimenting and getting familiar with the working principles of magnetic loop antennas.
+# A lightweight coaxial magnetic loop antenna for QRP
+*Notes on my portable magnetic loop for QRP operation.*
 
-Advantages:
-* Easy, cheap and fast to build and prototype.
-* Good antennas for portable operation, they can be dismounted easily.
+A coaxial cable-based magnetic loop is an excellent starting point to being experimenting and getting familiar with the working principles of magnetic loop antennas. These antennas are easy, cheap and fast to build and prototype.
 
-Disadvantages:
-* Lower efficiency than loops using thicker outer tubes.
-* Since these builds are normally made with broadcasting capacitors of small plate separation, TX power typically cannot go beyond 10 Watts.
+{{< rawhtml >}}
+<div style="text-align:center">
+<img src="" />
+<figcaption><b>Picture 1: Antenna ready for operation.</b></figcaption>
+</div>
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+<div style="text-align:center">
+<img src="" />
+<figcaption><b>Picture 2: Antenna collapsed.</b></figcaption>
+</div>
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+<div style="text-align:center">
+<img src="" />
+<figcaption><b>Picture 3: Tunning box with planetary reduction.</b></figcaption>
+</div>
+{{< /rawhtml >}}
 
 ## Outer and inner loops
 The outer loop is typically made with a coaxial cable size RG-213. To hold the loop shape better it is best to choose a cable like LMR400 due to its rigidity. When mounting the loop, the inner conductor and the jacket shall be shorted for efficiency reasons. In my build I have done this in the female connectors instead of in the cable itself or the male connector. This is a safety measure, in case I reuse the outer loop at a later point. The inner loop needs to have a legth of 1/5 and 1/8 of the outer loop.  Finally, the transmitting loop is kept in many builds with a vertical piece of PVC tubing. Others also use coaxial cable for the vertical support (see CHA F-LOOP).
@@ -35,8 +50,12 @@ General specifications:
 * 1 meter diameter outer loop, made of LMR400. 1 cm cable section.
 * The vertical support is made of PVC piping and it fits well on a photography tripod.
 
-Specifications per band:
 
+Limitations:
+* Lower efficiency than loops using thicker outer tubes.
+* Since these builds are normally made with broadcasting capacitors of small plate separation, TX power typically cannot go beyond 10 Watts.
+
+Theoretical calculations:
 |                                               | 7 MHz     | 10 MHz    | 14 MHz    | 18 MHz  | 21 MHz   | 24 MHz   | 28 MHz    |
 |-----------------------------------------------|-----------|-----------|-----------|---------|----------|----------|-----------|
 | Efficiency                                    | 7%        | 21%       |  46%      | 67%     | 78%      | 85%      |  91%      |
