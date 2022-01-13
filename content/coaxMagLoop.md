@@ -34,13 +34,15 @@ Main characteristics of this antenna:
 
 ## Construction notes
 
+Content distrilled to the bare minimum and focused on the critical aspects and most common pitfalls. To be read carefully by future builders. If you follow the instructions presented here your antenna **will work**.
+
 ### Outer and inner loops
-The outer loop of this antenna is made from 3.14m coaxial cable LMR400. Thanks to its rigidity, the cable will hold the ciruclar shape better than other more flexible cables like RG213. When mounting the loop, the inner conductor and the jacket shall be shorted for efficiency reasons. I have done this in the female connectors instead of in the cable itself or the male connectors. This is a safety measure, in case I reuse the outer loop at a later point as a transmission line. The inner loop needs to have a legth of 1/5 and 1/8 of the outer loop, as in any normal magnetic loop construction. In this antenna, the inner loop has a diameter of 20 cm.
+The outer loop of this antenna is made from 3.14m coaxial cable LMR400. Thanks to its rigidity, the cable will hold the ciruclar shape better than other more flexible cables like RG213. When mounting the loop, the inner conductor and the jacket shall be shorted for efficiency reasons. I have done this in the female connectors instead of in the cable itself or the male connectors. This is a safety measure, in case I reuse the outer loop at a later point as a transmission line. The inner loop needs to have a legth of 1/5 and 1/8 of the outer loop, as in any normal magnetic loop construction. In this antenna, the inner loop has a diameter of 20 cm. The inner loop has to be very close to the outer one in order to achieve a low SWR. Many builders cannot achieve low SWR values due to incorrect positioning of the inner loop.
 
 Finally, the transmitting loop is kept in many builds with a vertical piece of PVC tubing, this is simple and has a low cost. Others also use coaxial cable for the vertical support (see for example the CHA F-LOOP). As it is best to use a material that is not metallic to avoid losses and with the aim of keeping it simple I used PVC piping.
 
 ### Capacitors
-The loop is tuned through a broadcasting type, variable capacitor[^1]. Sections are connected to the female UHF connectors as shown in the pictures below.
+The loop is tuned through a broadcasting type, variable capacitor[^1]. Sections are connected to the female UHF connectors as shown in the pictures below. If your capacitor has trimmers, open them fully so the capacitor can achieve its minimal capacitance, and therefore being able to tune the highest bands.
 
 {{< rawhtml >}}
 <div style="text-align:center">
@@ -72,15 +74,19 @@ Comments:
 * Capacitor plate separation does not make it possible to operate at high power due to the voltage developed in the tuning capacitor.
 * These calculations are orientative. When implementing the antenna there are factors that will make real measurements deviate from the theoretical calculations (e.g. resistive losses, distributed capacitance).
 
+## Other loop antennas, commercial and homemade. ...and the build vs. buy dilemma.
+I started experimenting with magnetic loops in 2012 after reading [G4ILO article on his loop](http://www.g4ilo.com/wonder-loop.html). It is a very comprehensive article that I recommend reading. A second homemade build that I specially liked was [YOGGX Portable remote tunable magnetic loop antenna](https://www.yo3ggx.ro/magloop/PortableMagLoopBuild_v1.0.pdf). The article describes a simple way to tune the capacitor through a RC-servo.
+
+This is an antenna that every loop experimenter should build however, purchase of a commercial model shall be carefully considered. One shoud not forget that in the end one will be paying for a capacitor in a box and a piece of coaxial cable. Nevertheless, at this point of my life and considering the time I have at my disposal, I would be inclined to buy [OM0ET Ultralight MLA MC 20](https://www.om0et.com/ultralight-mla-mc-20.html). The reasons being: it is reasonably priced and the creator has a complete [youtube channel](https://www.youtube.com/c/OMOET/videos) detailing its build (among other contents). There are other models in the market besides these two antennas however, since their retail prices in Europe are between 500 to 600 Euros, it is not reasonable to consider their purchase (as I said, it is a capacitor in a box and a cable).
+
 ## Final comments
-I have used this antenna both portable and in my apartment balcony extensively and with good results. 
-
-SSB, digital, cw indoors vs outdoors and bands
-o0mnet reference
+This is a simple yet effective antenna. I have used it both portable and in my apartment balcony extensively and with good results. You will not be able to do DX work but it will get you in the air. The antenna will even yield contacts when operated indoors, especially when using digital modes or CW.
 
 
-This is an antenna that every loop experimenter should build however, purchase of a commercial model shall be carefully considered, as the existing ones in the market are highly priced (as of 2022). There are many builds on the internet, both DIY implementations as well as commercial. The most widesread model is the AlexLoop antenna but there are others, such as the Chameleon CHA F-LOOP 2.0. Many other hams have built similar antennas, a good inspiration and a well documented project can be found in [YO3GGX website](https://www.yo3ggx.ro/magloop/PortableMagLoopBuild_v1.0.pdf).
+@TODO: complete this description:
+* It is a magnetic loop in the bands XXX but do not expect wonders in terms of less RX noise due to that. Unfortunatelly there is just too much RFI and non-compliant electrical appliances.
+* The null in its radiation pattern is indeed a reality, but very often you will have to choose between nulling the interference or maximizing the rx level of the target signal.
 
 ## Notes
-[^1]: Butterfly capacitors are a bettery choicie but its availability is more limited, they are more expensice and bigger in size.
+[^1]: Butterfly capacitors are a better choicie but its availability is limited, they are more expensive and bigger in size.
 [^2]: Vernier dials are also a good option to implement the reduction, but it might be difficult to find a high quality one.
