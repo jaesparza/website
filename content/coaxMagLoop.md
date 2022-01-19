@@ -77,9 +77,9 @@ Comments:
 * These calculations are orientative. When implementing the antenna there are factors that will make real measurements deviate from the theoretical calculations (e.g. resistive losses, distributed capacitance).
 
 ## Other loop antennas, commercial and homemade. ...and the build vs. buy dilemma.
-I started experimenting with magnetic loops in 2012 after reading [G4ILO article on his loop](http://www.g4ilo.com/wonder-loop.html). It is a very comprehensive article that I recommend reading. A second homemade build that I specially liked was [YOGGX Portable remote tunable magnetic loop antenna](https://www.yo3ggx.ro/magloop/PortableMagLoopBuild_v1.0.pdf). The article describes a simple way to tune the capacitor through a RC-servo.
+I started experimenting with magnetic loops in 2012 after reading [G4ILO article on his "wonder loop"](http://www.g4ilo.com/wonder-loop.html). It is a very comprehensive article that I recommend reading. A second homemade build that I specially liked was [YOGGX Portable remote tunable magnetic loop antenna](https://www.yo3ggx.ro/magloop/PortableMagLoopBuild_v1.0.pdf). The article describes a simple way to tune the capacitor through a RC-servo.
 
-This is an antenna that every loop experimenter should build however, purchase of a commercial model shall be carefully considered. One shoud not forget that in the end one will be paying for a capacitor in a box and a piece of coaxial cable. Nevertheless, at this point of my life and considering the time I have at my disposal, I would be inclined to buy [OM0ET Ultralight MLA MC 20](https://www.om0et.com/ultralight-mla-mc-20.html). The reasons being: it is reasonably priced and the creator has a complete [youtube channel](https://www.youtube.com/c/OMOET/videos) detailing its build (among other contents). There are other models in the market besides these two antennas however, since their retail prices in Europe are between 500 to 600 Euros, it is not reasonable to consider their purchase (as I said, it is a capacitor in a box and a cable).
+This is an antenna that every loop experimenter should build however, purchase of a commercial model shall be carefully considered. One shoud not forget that in the end one will be paying for a capacitor in a box and a piece of coaxial cable. Nevertheless, at this point of my life and considering the time I have at my disposal, I would be inclined to buy the [OM0ET Ultralight MLA MC 20](https://www.om0et.com/ultralight-mla-mc-20.html). The reasons being: it is reasonably priced and the creator has a complete [youtube channel](https://www.youtube.com/c/OMOET/videos) detailing its construction (among other contents). There are other models in the market besides these two antennas however, since their retail prices in Europe are between 500 to 600 Euros, it is not reasonable to consider their purchase (as I said, it is a capacitor in a box and a cable).
 
 ## Final comments
 This is a simple yet effective antenna. I have used it both portable and in my apartment balcony extensively and with good results. You will not be able to do DX work but it will get you in the air. The antenna will even yield contacts when operated indoors, especially when using digital modes or CW.
@@ -88,6 +88,8 @@ This is a simple yet effective antenna. I have used it both portable and in my a
 @TODO: complete this description:
 * It is a magnetic loop in the bands XXX but do not expect wonders in terms of less RX noise due to that. Unfortunatelly there is just too much RFI and non-compliant electrical appliances.
 * The null in its radiation pattern is indeed a reality, but very often you will have to choose between nulling the interference or maximizing the rx level of the target signal.
+* https://www.orenelliottproducts.com/product/bd602/
+* https://www.mainline-group.com/collections/reduction-drives-classic-6-1
 
 ## Notes
 [^1]: Butterfly capacitors are a better choicie but its availability is limited, they are more expensive and bigger in size.

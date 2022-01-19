@@ -23,6 +23,9 @@ The NanoVNA will export data in the touchstone format, explain it.
 * https://github.com/NanoVNA-Saver/nanovna-saver/issues/245
 ```
 
+
+https://en.wikipedia.org/wiki/Touchstone_file
+
 An export for port 1 might look as follows:
 ```
 # HZ S RI R 50
@@ -41,3 +44,9 @@ An export for port 1 might look as follows:
 ```
 
 ## NanoVNA tips and tricks
+
+
+## Misc resources
+
+https://www.arrl.org/files/file/Technology/tis/info/pdf/q1106037.pdf
+https://en.wikipedia.org/wiki/Touchstone_file
