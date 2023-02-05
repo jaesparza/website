@@ -9,3 +9,6 @@ bookToc: false
 * A magnetic loop antenna covering 14MHz to 28MHz. [link]({{< relref "../loop1.md" >}})
 * A low-power coax-based magnetic loop antenna covering 7MHz to 28MHz. [link]({{< relref "../coaxMagLoop.md">}})
 * Airband monitoring station. [link]({{< relref "../aviationmonitoringstation.md" >}})
+
+## Assorted 
+*  Algorithms and real-time monitoring in Factorio.
